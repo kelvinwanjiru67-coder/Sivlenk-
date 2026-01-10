@@ -15,7 +15,7 @@ const products = [
     type: "Physical",
     image: "https://images.unsplash.com/photo-1585238342028-4bbc4c6caa58"
   },
-  {
+  
    <a
   href="https://www.claudiacaldwell.com/oto-uf61a?el=splittest-1214-bradflow-control#aff=Kelvis67"
   target="_blank"
@@ -35,7 +35,7 @@ const products = [
   />
 </a>
 
-  },
+  
 
   {
     title: "AI Tools for Online Business",
