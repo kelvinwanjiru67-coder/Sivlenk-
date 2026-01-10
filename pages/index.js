@@ -16,11 +16,25 @@ const products = [
     image: "https://images.unsplash.com/photo-1585238342028-4bbc4c6caa58"
   },
   {
-    title: "⚡The Ultimate Keto Meal Plan⚡",
-    desc: "A proven digital system designed to help you build scalable online income streams using modern strategies.",                       
-    link: "https://www.claudiacaldwell.com/oto-uf61a?el=splittest-1214-bradflow-control#aff=Kelvis67",
-    type: "Digital",
-    image: "https://unsplash.com/photos/silver-fork-and-bread-knife-W2QVimqre4w"
+   <a
+  href="https://www.claudiacaldwell.com/oto-uf61a?el=splittest-1214-bradflow-control#aff=Kelvis67"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img
+    src="/images/ChatGPTImageJan10,2026,07_43_06PM.png"
+    alt="The Ultimate Keto Meal Plan"
+    style={{
+      width: "100%",
+      maxWidth: "420px",
+      borderRadius: "16px",
+      boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+      cursor: "pointer",
+      marginTop: "20px"
+    }}
+  />
+</a>
+
   },
 
   {
