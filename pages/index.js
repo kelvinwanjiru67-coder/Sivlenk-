@@ -16,12 +16,13 @@ const products = [
     image: "https://images.unsplash.com/photo-1585238342028-4bbc4c6caa58"
   },
   {
-    title: "Digital Marketing Blueprint",
-    desc: "A proven step-by-step system to build profitable online income streams.",
-    link: "https://example.com", // Digistore24 link
-    type: "Digital",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-  },
+  title: "Online Income Blueprint",
+  desc: "A proven digital system designed to help you build scalable online income streams using modern strategies.",
+  link: "https://www.claudiacaldwell.com/oto-uf61a?el=splittest-1214-bradflow-control#aff=Kelvis67",
+  type: "Digital",
+  image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+},
+
   {
     title: "AI Tools for Online Business",
     desc: "Automate, scale, and grow faster using modern AI-powered tools.",
