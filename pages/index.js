@@ -15,14 +15,14 @@ const products = [
     type: "Physical",
     image: "https://images.unsplash.com/photo-1585238342028-4bbc4c6caa58"
   },
-  
+  {
    <a
   href="https://www.claudiacaldwell.com/oto-uf61a?el=splittest-1214-bradflow-control#aff=Kelvis67"
   target="_blank"
   rel="noopener noreferrer"
 >
   <img
-    src="/images/ChatGPTImageJan10,2026,07_43_06PM.png"
+    src="/images/keto-meal-plan.png"
     alt="The Ultimate Keto Meal Plan"
     style={{
       width: "100%",
@@ -34,7 +34,7 @@ const products = [
     }}
   />
 </a>
-
+},
   
 
   {
