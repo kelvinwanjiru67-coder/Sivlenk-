@@ -16,7 +16,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585238342028-4bbc4c6caa58"
   },
   {
-    title: "Online Income Blueprint",
+    title: "⚡The Ultimate Keto Meal Plan⚡",
     desc: "A proven digital system designed to help you build scalable online income streams using modern strategies.",                       
     link: "https://www.claudiacaldwell.com/oto-uf61a?el=splittest-1214-bradflow-control#aff=Kelvis67",
     type: "Digital",
