@@ -3,27 +3,31 @@ import Head from "next/head";
 const products = [
   {
     title: "Wireless Earbuds Pro",
-    desc: "High-quality sound, long battery life, perfect for daily use.",
-    link: "https://example.com", // replace with Amazon/Jumia link
-    type: "Physical"
+    desc: "Crystal-clear sound, noise reduction, and long battery life.",
+    link: "https://example.com", // replace with Amazon/Jumia affiliate link
+    type: "Physical",
+    image: "https://images.unsplash.com/photo-1585386959984-a41552231693"
   },
   {
-    title: "Smart Home Blender",
-    desc: "Powerful blender for smoothies, shakes, and meal prep.",
-    link: "https://example.com", // replace with Amazon/Jumia link
-    type: "Physical"
+    title: "High-Speed Blender",
+    desc: "Perfect for smoothies, meal prep, and healthy living.",
+    link: "https://example.com", // replace with Amazon/Jumia affiliate link
+    type: "Physical",
+    image: "https://images.unsplash.com/photo-1585238342028-4bbc4c6caa58"
   },
   {
-    title: "Digital Marketing Mastery",
-    desc: "Learn how to build profitable online businesses step by step.",
+    title: "Digital Marketing Blueprint",
+    desc: "Step-by-step system to build online income streams.",
     link: "https://example.com", // replace with Digistore24 link
-    type: "Digital"
+    type: "Digital",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
   },
   {
-    title: "AI Tools for Business",
-    desc: "Boost productivity and income using modern AI tools.",
+    title: "AI Income Tools Pack",
+    desc: "Leverage AI tools to automate and scale your business.",
     link: "https://example.com", // replace with Digistore24 link
-    type: "Digital"
+    type: "Digital",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995"
   }
 ];
 
@@ -34,36 +38,36 @@ export default function Home() {
         <title>Sivlenk | Best Product Deals & Reviews</title>
         <meta
           name="description"
-          content="Discover top-rated physical and digital products. Honest reviews, trusted recommendations, and the best deals online."
+          content="Sivlenk helps you find trusted physical and digital products that deliver real value. Honest reviews, top deals, and smart recommendations."
         />
       </Head>
 
       <main style={{
         minHeight: "100vh",
-        backgroundColor: "#020617",
+        background: "linear-gradient(to bottom, #020617, #020617)",
         color: "white",
         padding: "2.5rem",
         fontFamily: "system-ui"
       }}>
 
         {/* HERO */}
-        <section style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <h1 style={{ fontSize: "2.7rem", marginBottom: "1rem" }}>
+        <section style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+          <h1 style={{ fontSize: "2.8rem", marginBottom: "1rem" }}>
             Smart Deals. Honest Picks.
           </h1>
-          <p style={{ color: "#cbd5e1", maxWidth: "650px", margin: "0 auto 1.5rem" }}>
-            Sivlenk helps you discover the best physical and digital products —
-            carefully selected to save you time and money.
+          <p style={{ color: "#cbd5e1", maxWidth: "700px", margin: "0 auto 1.5rem" }}>
+            Discover carefully selected physical and digital products that help
+            you save money, improve productivity, and grow smarter.
           </p>
           <a href="#products" style={{
             background: "#34d399",
             color: "#000",
-            padding: "14px 26px",
-            borderRadius: "18px",
+            padding: "15px 28px",
+            borderRadius: "20px",
             fontWeight: "700",
             textDecoration: "none"
           }}>
-            View Top Products
+            View Top Recommendations
           </a>
         </section>
 
@@ -78,23 +82,41 @@ export default function Home() {
           fontSize: "0.95rem"
         }}>
           <div>✔ Honest Reviews</div>
-          <div>✔ Real User Value</div>
-          <div>✔ Secure & Trusted Links</div>
+          <div>✔ Real Value Products</div>
+          <div>✔ Secure Affiliate Links</div>
         </section>
 
         {/* PRODUCTS */}
-        <section id="products" style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          gap: "1.5rem"
-        }}>
+        <section
+          id="products"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: "1.8rem"
+          }}
+        >
           {products.map((p, i) => (
-            <div key={i} style={{
-              background: "#020617",
-              border: "1px solid #1e293b",
-              borderRadius: "18px",
-              padding: "1.5rem"
-            }}>
+            <div
+              key={i}
+              style={{
+                background: "#020617",
+                border: "1px solid #1e293b",
+                borderRadius: "22px",
+                padding: "1.5rem"
+              }}
+            >
+              <img
+                src={p.image}
+                alt={p.title}
+                style={{
+                  width: "100%",
+                  height: "170px",
+                  objectFit: "cover",
+                  borderRadius: "14px",
+                  marginBottom: "1rem"
+                }}
+              />
+
               <span style={{
                 fontSize: "0.75rem",
                 color: "#34d399"
@@ -102,7 +124,7 @@ export default function Home() {
                 {p.type} Product
               </span>
 
-              <h3 style={{ marginTop: "0.5rem", marginBottom: "0.5rem" }}>
+              <h3 style={{ margin: "0.5rem 0" }}>
                 {p.title}
               </h3>
 
@@ -119,7 +141,7 @@ export default function Home() {
                   marginTop: "1rem",
                   background: "#34d399",
                   color: "#000",
-                  padding: "10px 18px",
+                  padding: "11px 20px",
                   borderRadius: "14px",
                   fontWeight: "600",
                   textDecoration: "none"
@@ -131,7 +153,24 @@ export default function Home() {
           ))}
         </section>
 
-        {/* AFFILIATE DISCLOSURE */}
+        {/* NICHE POSITIONING */}
+        <section style={{
+          marginTop: "4rem",
+          textAlign: "center",
+          color: "#cbd5e1",
+          maxWidth: "800px",
+          marginInline: "auto"
+        }}>
+          <h2 style={{ marginBottom: "0.8rem" }}>
+            Why Trust Sivlenk?
+          </h2>
+          <p>
+            We research, test, and compare products so you don’t have to.
+            Sivlenk focuses on quality, usability, and long-term value — not hype.
+          </p>
+        </section>
+
+        {/* FOOTER */}
         <footer style={{
           marginTop: "3.5rem",
           paddingTop: "1.5rem",
@@ -142,7 +181,7 @@ export default function Home() {
         }}>
           Affiliate Disclosure: Sivlenk may earn commissions from qualifying
           purchases at no extra cost to you. We only recommend products we
-          believe provide real value.
+          believe provide genuine value.
         </footer>
 
       </main>
