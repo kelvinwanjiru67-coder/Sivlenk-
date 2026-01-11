@@ -21,6 +21,7 @@ const products = [
     link: "https://www.claudiacaldwell.com/oto-uf61a?el=splittest-1214-bradflow-control#aff=Kelvis67",
     type: "Digital",
     image: "/images/keto-meal-plan.png"
+    cta: "Get Instant Access"
   },
     
 
@@ -166,7 +167,8 @@ export default function Home() {
                   textDecoration: "none"
                 }}
               >
-                View Deal →
+                {p.type === "Digital" ? "Get Instant Access" : "Buy Now"}
+            
               </a>
             </div>
           ))}
