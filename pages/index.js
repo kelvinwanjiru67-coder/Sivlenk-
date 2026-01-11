@@ -56,6 +56,14 @@ export default function Home() {
           boxSizing: "border-box"
        }}
      >
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          width: "100%"
+       }}
+     >
+
 
 
 
@@ -207,8 +215,9 @@ export default function Home() {
           Affiliate Disclosure: Sivlenk may earn commissions from qualifying
           purchases at no extra cost to you.
         </footer>
-
+        </div>
       </main>
     </>
   );
 }
+      
