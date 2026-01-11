@@ -150,12 +150,14 @@ export default function Home() {
                 alt={p.title}
                 style={{
                   width: "100%",
-                  height: "170px",
+                  height: "auto",
+                  maxHeight: "180px",
                   objectFit: "cover",
                   borderRadius: "14px",
                   marginBottom: "1rem"
-                }}
-              />
+              }}
+           />
+
 
               <span style={{ fontSize: "0.75rem", color: "#34d399" }}>
                 {p.type} Product
