@@ -128,10 +128,13 @@ export default function Home() {
           id="products"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: "1.8rem"
-          }}
-        >
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "1.8rem",
+            width: "100%",
+            boxSizing: "border-box"
+         }}
+      >
+          
           {products.map((p, i) => (
             <div
               key={i}
