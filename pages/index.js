@@ -47,24 +47,15 @@ export default function Home() {
       </Head>
 
       <main
-  style={{
-    minHeight: "100vh",
-    width: "100%",
-    background: "#020617",
-    color: "#e5e7eb",
-    padding: "1rem",
-    boxSizing: "border-box"
-  }}
-<div
-  style={{
-    maxWidth: "1200px",
-    margin: "0 auto",
-    width: "100%"
-  }}
->
-    >
-  </div>
-</main>
+        style={{
+          minHeight: "100vh",
+          width: "100%",
+          background: "#020617",
+          color: "#e5e7eb",
+          padding: "1rem",
+          boxSizing: "border-box"
+       }}
+     >
 
 
 
