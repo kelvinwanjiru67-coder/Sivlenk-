@@ -62,7 +62,21 @@ export default function Home() {
     padding: "1rem",
     boxSizing: "border-box"
   }}
->
+> 
+     {/* HEADER / BRAND */}
+        <header style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "3rem"
+        }}>
+          <strong style={{ fontSize: "1.2rem", color: "#34d399" }}>
+            Sivlenk
+          </strong>
+          <span style={{ color: "#94a3b8", fontSize: "0.9rem" }}>
+            Smart Deals. Honest Picks.
+          </span>
+        </header>
   <nav
     style={{
       display: "flex",
@@ -110,20 +124,7 @@ export default function Home() {
 
 
 
-        {/* HEADER / BRAND */}
-        <header style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: "3rem"
-        }}>
-          <strong style={{ fontSize: "1.2rem", color: "#34d399" }}>
-            Sivlenk
-          </strong>
-          <span style={{ color: "#94a3b8", fontSize: "0.9rem" }}>
-            Smart Deals. Honest Picks.
-          </span>
-        </header>
+        
 
         {/* HERO */}
         <section style={{ textAlign: "center", marginBottom: "4rem" }}>
