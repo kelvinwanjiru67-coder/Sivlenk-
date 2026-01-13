@@ -53,58 +53,59 @@ export default function Home() {
           }
         `}</style>
       </Head>
-
-      <main
-        <nav
-         style={{
-           display: "flex",
-           gap: "0.75rem",
-           flexWrap: "wrap",
-           justifyContent: "center",
-           marginBottom: "2rem"
-        }}
-      >
-        {[
-          { name: "Dating", link: "/dating" },
-          { name: "Wellness", link: "/wellness" },
-          { name: "Beauty", link: "/beauty" },
-          { name: "Lifestyle", link: "/lifestyle" },
-          { name: "Food", link: "/food" }
-        ].map((item, index) => (
-         <a
-           key={index}
-           href={item.link}
-           style={{
-             padding: "8px 16px",
-             borderRadius: "999px",
-             background: "#020617",
-             color: "#e5e7eb",
-             textDecoration: "none",
-             fontWeight: "600",
-             fontSize: "0.9rem"
-          }}
-        >
-          {item.name}
-        </a>
-     ))}
-   </nav>
-
+       <main
+  style={{
+    minHeight: "100vh",
+    width: "100%",
+    background: "#020617",
+    color: "#e5e7eb",
+    padding: "1rem",
+    boxSizing: "border-box"
+  }}
+>
+  <nav
+    style={{
+      display: "flex",
+      gap: "0.75rem",
+      flexWrap: "wrap",
+      justifyContent: "center",
+      marginBottom: "2rem"
+    }}
+  >
+    {[
+      { name: "Dating", link: "/dating" },
+      { name: "Wellness", link: "/wellness" },
+      { name: "Beauty", link: "/beauty" },
+      { name: "Lifestyle", link: "/lifestyle" },
+      { name: "Food", link: "/food" }
+    ].map((item, index) => (
+      <a
+        key={index}
+        href={item.link}
         style={{
-          minHeight: "100vh",
-          width: "100%",
+          padding: "8px 16px",
+          borderRadius: "999px",
           background: "#020617",
           color: "#e5e7eb",
-          padding: "1rem",
-          boxSizing: "border-box"
-       }}
-     >
-      <div
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          width: "100%"
-       }}
-     >
+          textDecoration: "none",
+          fontWeight: "600",
+          fontSize: "0.9rem"
+        }}
+      >
+        {item.name}
+      </a>
+    ))}
+  </nav>
+
+  <div
+    style={{
+      maxWidth: "1200px",
+      margin: "0 auto",
+      width: "100%"
+    }}
+  >
+  
+      
 
 
 
