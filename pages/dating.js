@@ -20,13 +20,13 @@ export default function Dating() {
     },
     {
       title: "Building Trust and Emotional Connection",
-      image: "/images/dating/dating-trust.png",
+      image: "/images/dating/dating-trust.jpg",
       excerpt:
         "Trust is the foundation of any healthy relationship. Learn practical ways to build emotional safety and deepen your bond."
     },
     {
       title: "How to Maintain Long-Term Relationship Happiness",
-      image: "/images/dating/dating-long-term.png",
+      image: "/images/dating/dating-long-term.jpg",
       excerpt:
         "Lasting relationships require effort and intention. Explore habits that help couples grow together and stay connected."
     }
