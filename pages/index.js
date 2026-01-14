@@ -87,6 +87,7 @@ export default function Home() {
     }}
   >
     {[
+      { name: "Home", link: "/" },
       { name: "Dating", link: "/dating" },
       { name: "Wellness", link: "/wellness" },
       { name: "Beauty", link: "/beauty" },
