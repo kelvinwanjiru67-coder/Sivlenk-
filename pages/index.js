@@ -264,7 +264,20 @@ export default function Home() {
           © {new Date().getFullYear()} Sivlenk. All rights reserved. <br />
           Affiliate Disclosure: Sivlenk may earn commissions from qualifying
           purchases at no extra cost to you.
-        </footer>
+            <footer
+  style={{
+    marginTop: "4rem",
+    paddingTop: "2rem",
+    borderTop: "1px solid #1e293b",
+    textAlign: "center",
+    fontSize: "0.85rem"
+  }}
+>
+  <a href="/about">About</a> ·{" "}
+  <a href="/privacy">Privacy</a> ·{" "}
+  <a href="/terms">Terms</a> ·{" "}
+  <a href="/affiliate-disclosure">Affiliate Disclosure</a>
+</footer>
         </div>
       </main>
     </>
