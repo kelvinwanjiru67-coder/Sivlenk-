@@ -253,31 +253,31 @@ export default function Home() {
         </section>
 
         {/* FOOTER */}
-        <footer style={{
-          marginTop: "4rem",
-          paddingTop: "1.5rem",
-          borderTop: "1px solid #1e293b",
-          color: "#94a3b8",
-          fontSize: "0.85rem",
-          textAlign: "center"
-        }}>
-          © {new Date().getFullYear()} Sivlenk. All rights reserved. <br />
-          Affiliate Disclosure: Sivlenk may earn commissions from qualifying
-          purchases at no extra cost to you.
-            <footer
+<footer
   style={{
     marginTop: "4rem",
     paddingTop: "2rem",
     borderTop: "1px solid #1e293b",
     textAlign: "center",
-    fontSize: "0.85rem"
+    fontSize: "0.85rem",
+    color: "#94a3b8"
   }}
 >
-  <a href="/about">About</a> ·{" "}
-  <a href="/privacy">Privacy</a> ·{" "}
-  <a href="/terms">Terms</a> ·{" "}
-  <a href="/affiliate-disclosure">Affiliate Disclosure</a>
+  <p>
+    © {new Date().getFullYear()} Sivlenk. All rights reserved.
+    <br />
+    Affiliate Disclosure: Sivlenk may earn commissions from qualifying
+    purchases at no extra cost to you.
+  </p>
+
+  <div style={{ marginTop: "1rem" }}>
+    <a href="/about">About</a>{" · "}
+    <a href="/privacy">Privacy</a>{" · "}
+    <a href="/terms">Terms</a>{" · "}
+    <a href="/affiliate-disclosure">Affiliate Disclosure</a>
+  </div>
 </footer>
+                  
         </div>
       </main>
     </>
