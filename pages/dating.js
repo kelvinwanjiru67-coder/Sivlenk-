@@ -1,10 +1,106 @@
 export default function Dating() {
   const blogs = [
     {
-      title: "Healthy Communication in Relationships",
+      title: "How to make your man worship you (without losing yourself)",
       image: "/images/dating/dating-communication.png",
       excerpt:
-        "Strong relationships are built on clear, honest communication. Learn how to express your needs, listen actively, and avoid common misunderstandings."
+        "A man doesn’t “worship” a woman because she controls him or tries too hard.
+He adores her because of how she makes him feel, how she values herself, and how she creates emotional safety and attraction at the same time.
+
+Here’s how to build that kind of connection — naturally and powerfully.
+  
+  1. **Master Self-Respect Before Seeking His Attention**.
+
+    Nothing is more attractive than a woman who knows her worth.
+
+     When you respect yourself:
+
+    a). You don’t chase validation
+
+    b). You set healthy boundaries
+
+    c). You don’t tolerate inconsistency or disrespect
+
+A man is drawn to a woman who doesn’t need him to feel whole — but chooses him.
+ 
+  2. **Let Him Feel Needed, Not Controlled**
+
+   Men thrive when they feel useful and appreciated.
+
+ This doesn’t mean dependency — it means:
+
+    a). Appreciating his effort
+
+    b). Letting him solve problems sometimes
+
+    c). Acknowledging his strengths
+
+When a man feels trusted and respected, his emotional investment deepens.
+ 
+  3. **Communicate Calmly, Not Emotionally Explosively**
+
+   Strong relationships are built on emotional maturity.
+
+  Instead of reacting:
+
+    a). Speak calmly
+
+    b). Express how you feel without blame
+
+    c). Listen as much as you speak
+
+A woman who communicates with clarity and grace becomes irreplaceable.
+  
+  4.**Maintain Your Own Life, Passions, and Energy**
+
+    Your independence is magnetic.
+
+    When you have:
+
+    a). Hobbies
+
+    b). Goals
+
+    c). A life beyond the relationship
+
+You naturally become more desirable. A man admires a woman who inspires him — not one who revolves around him.
+  
+  5. **Create Emotional Safety**
+
+When a man feels safe with you emotionally, he opens up.
+
+You create safety by:
+
+    a). Not judging his vulnerabilities
+
+    b). Supporting his growth
+
+    c). Being consistent with your words and actions
+
+Emotional safety builds loyalty faster than attraction alone.
+   
+  6. **Know When to Step Back**
+
+Sometimes the most powerful move is space.
+
+   Space allows:
+
+     a). Desire to grow
+
+     b). Reflection to happen
+
+     c). Appreciation to return
+
+A man values what he feels he could lose.
+  
+  **Final Thought**
+
+True devotion isn’t forced — it’s inspired.
+
+When you lead with confidence, self-love, emotional intelligence, and boundaries, the right man won’t just admire you — he’ll cherish you.
+
+And most importantly:
+Never shrink yourself to be adored. The right man rises to meet you."
     },
     {
       title: "5 Red Flags You Should Never Ignore",
