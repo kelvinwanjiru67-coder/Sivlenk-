@@ -3,8 +3,7 @@ export default function Dating() {
     {
       title: "How to make your man worship you (without losing yourself)",
       image: "/images/dating/dating-communication.png",
-      excerpt:
-        "A man doesn’t “worship” a woman because she controls him or tries too hard.
+      excerpt: `A man doesn’t “worship” a woman because she controls him or tries too hard.
 He adores her because of how she makes him feel, how she values herself, and how she creates emotional safety and attraction at the same time.
 
 Here’s how to build that kind of connection — naturally and powerfully.
@@ -15,11 +14,11 @@ Here’s how to build that kind of connection — naturally and powerfully.
 
      When you respect yourself:
 
-    a). You don’t chase validation
+    - You don’t chase validation
 
-    b). You set healthy boundaries
+    - You set healthy boundaries
 
-    c). You don’t tolerate inconsistency or disrespect
+    - You don’t tolerate inconsistency or disrespect
 
 A man is drawn to a woman who doesn’t need him to feel whole — but chooses him.
  
@@ -29,11 +28,11 @@ A man is drawn to a woman who doesn’t need him to feel whole — but chooses h
 
  This doesn’t mean dependency — it means:
 
-    a). Appreciating his effort
+    - Appreciating his effort
 
-    b). Letting him solve problems sometimes
+    - Letting him solve problems sometimes
 
-    c). Acknowledging his strengths
+    - Acknowledging his strengths
 
 When a man feels trusted and respected, his emotional investment deepens.
  
@@ -43,11 +42,11 @@ When a man feels trusted and respected, his emotional investment deepens.
 
   Instead of reacting:
 
-    a). Speak calmly
+    - Speak calmly
 
-    b). Express how you feel without blame
+    - Express how you feel without blame
 
-    c). Listen as much as you speak
+    - Listen as much as you speak
 
 A woman who communicates with clarity and grace becomes irreplaceable.
   
@@ -57,11 +56,11 @@ A woman who communicates with clarity and grace becomes irreplaceable.
 
     When you have:
 
-    a). Hobbies
+    - Hobbies
 
-    b). Goals
+    - Goals
 
-    c). A life beyond the relationship
+    - A life beyond the relationship
 
 You naturally become more desirable. A man admires a woman who inspires him — not one who revolves around him.
   
@@ -71,11 +70,11 @@ When a man feels safe with you emotionally, he opens up.
 
 You create safety by:
 
-    a). Not judging his vulnerabilities
+    - Not judging his vulnerabilities
 
-    b). Supporting his growth
+    - Supporting his growth
 
-    c). Being consistent with your words and actions
+    - Being consistent with your words and actions
 
 Emotional safety builds loyalty faster than attraction alone.
    
@@ -85,11 +84,11 @@ Sometimes the most powerful move is space.
 
    Space allows:
 
-     a). Desire to grow
+     - Desire to grow
 
-     b). Reflection to happen
+     - Reflection to happen
 
-     c). Appreciation to return
+     - Appreciation to return
 
 A man values what he feels he could lose.
   
@@ -100,7 +99,7 @@ True devotion isn’t forced — it’s inspired.
 When you lead with confidence, self-love, emotional intelligence, and boundaries, the right man won’t just admire you — he’ll cherish you.
 
 And most importantly:
-Never shrink yourself to be adored. The right man rises to meet you."
+Never shrink yourself to be adored. The right man rises to meet you.`
     },
     {
       title: "5 Red Flags You Should Never Ignore",
