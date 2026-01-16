@@ -172,9 +172,10 @@ Never shrink yourself to be adored. The right man rises to meet you.`
 
               <h3 style={{ marginBottom: "0.5rem" }}>{blog.title}</h3>
 
-              <p style={{ fontSize: "0.95rem", color: "#cbd5f5" }}>
+              <p style={{ whiteSpace: "pre-line" }}>
                 {blog.excerpt}
-              </p>
+               </p>
+                  
             </article>
           ))}
         </section>
