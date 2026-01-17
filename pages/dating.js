@@ -142,44 +142,96 @@ Never shrink yourself to be adored. The right man rises to meet you.`
         </h1>
 
         <section
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "1.8rem",
+    marginTop: "3rem"
+  }}
+>
+  {blogs.map((blog, index) => (
+    <a
+      key={index}
+      href={`/dating/${blog.slug || index}`}
+      style={{
+        position: "relative",
+        height: "420px",
+        borderRadius: "22px",
+        overflow: "hidden",
+        textDecoration: "none",
+        boxShadow: "0 18px 40px rgba(0,0,0,0.35)",
+        transform: "translateY(0)",
+        transition: "transform 0.35s ease"
+      }}
+    >
+      {/* Background Image */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `url(${blog.image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "brightness(0.75)"
+        }}
+      />
+
+      {/* Gradient Overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15) 55%)"
+        }}
+      />
+
+      {/* Content */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "1.6rem",
+          left: "1.6rem",
+          right: "1.6rem",
+          color: "#fff"
+        }}
+      >
+        <span
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: "1.5rem"
+            fontSize: "0.75rem",
+            textTransform: "uppercase",
+            letterSpacing: "1px",
+            color: "#34d399"
           }}
         >
-          {blogs.map((blog, index) => (
-            <article
-              key={index}
-              style={{
-                background: "#020617",
-                border: "1px solid #1e293b",
-                borderRadius: "18px",
-                padding: "1.25rem"
-              }}
-            >
-              <img
-                src={blog.image}
-                alt={blog.title}
-                style={{
-                  width: "100%",
-                  height: "180px",
-                  objectFit: "cover",
-                  borderRadius: "12px",
-                  marginBottom: "1rem"
-                }}
-              />
+          Dating
+        </span>
 
-              <h3 style={{ marginBottom: "0.5rem" }}>{blog.title}</h3>
+        <h3
+          style={{
+            marginTop: "0.4rem",
+            fontSize: "1.25rem",
+            lineHeight: "1.35",
+            fontWeight: "700"
+          }}
+        >
+          {blog.title}
+        </h3>
 
-              <p style={{ whiteSpace: "pre-line" }}>
-                {blog.excerpt}
-               </p>
-                  
-            </article>
-          ))}
-        </section>
+        <p
+          style={{
+            marginTop: "0.5rem",
+            fontSize: "0.9rem",
+            color: "#d1d5db",
+            lineHeight: "1.45"
+          }}
+        >
+          {blog.excerpt.slice(0, 90)}...
+        </p>
       </div>
+    </a>
+  ))}
+</section>
     </main>
   );
       }
