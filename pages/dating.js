@@ -4,10 +4,10 @@ export default function Dating() {
       title: "How to make your man worship you (without losing yourself)",
       slug: "make-him-worship-you",
       image: "/images/dating/dating-communication.png",
-      excerpt: `A man doesn’t “worship” a woman because she controls him or tries too hard.
-He adores her because of how she makes him feel, how she values herself, and how she creates emotional safety and attraction at the same time.
+      excerpt: `A man doesn’t “worship” a woman because she controls him or tries too hard. He adores her because of how she makes him feel, how she values herself, and how she creates emotional safety and attraction at the same time.
 
-Here’s how to build that kind of connection — naturally and powerfully.
+      content: Here’s how to build that kind of connection — naturally and powerfully.
+      
   
   1. Master Self-Respect Before Seeking His Attention.
 
