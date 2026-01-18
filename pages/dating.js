@@ -2,6 +2,7 @@ export default function Dating() {
   const blogs = [
     {
       title: "How to make your man worship you (without losing yourself)",
+      slug: "make-him-worship-you",
       image: "/images/dating/dating-communication.png",
       excerpt: `A man doesn’t “worship” a woman because she controls him or tries too hard.
 He adores her because of how she makes him feel, how she values herself, and how she creates emotional safety and attraction at the same time.
@@ -103,24 +104,28 @@ Never shrink yourself to be adored. The right man rises to meet you.`
     },
     {
       title: "5 Red Flags You Should Never Ignore",
+      slug: "never-ignore-these-redflags",
       image: "/images/dating/dating-redflags.png",
       excerpt:
         "Recognizing early warning signs can save you emotional pain. Here are five relationship red flags that deserve serious attention."
     },
     {
       title: "How to Make a Great First Impression on a Date",
+      slug: "make-first-great-impression-on-a-date",
       image: "/images/dating/dating-first-date.png",
       excerpt:
         "First impressions matter. Discover simple but powerful tips to boost confidence, connect naturally, and enjoy your first date."
     },
     {
       title: "Building Trust and Emotional Connection",
+      slug: "build-trust-and-emotional-connection",
       image: "/images/dating/dating-trust.jpg",
       excerpt:
         "Trust is the foundation of any healthy relationship. Learn practical ways to build emotional safety and deepen your bond."
     },
     {
       title: "How to Maintain Long-Term Relationship Happiness",
+      slug: "maintain-long-term-relationship-happiness
       image: "/images/dating/dating-long-term.jpg",
       excerpt:
         "Lasting relationships require effort and intention. Explore habits that help couples grow together and stay connected."
@@ -143,7 +148,7 @@ Never shrink yourself to be adored. The right man rises to meet you.`
 
         <section
   style={{
-    display: "grid",
+    display: "block",
     gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
     gap: "1.8rem",
     marginTop: "3rem"
@@ -155,6 +160,7 @@ Never shrink yourself to be adored. The right man rises to meet you.`
       href={`/dating/${blog.slug || index}`}
       style={{
         position: "relative",
+        display: "block",
         height: "420px",
         borderRadius: "22px",
         overflow: "hidden",
@@ -226,7 +232,7 @@ Never shrink yourself to be adored. The right man rises to meet you.`
             lineHeight: "1.45"
           }}
         >
-          {blog.excerpt.slice(0, 90)}...
+          {String(blog.excerpt).slice(0, 90)}...
         </p>
       </div>
     </a>
