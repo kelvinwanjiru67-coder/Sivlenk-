@@ -12,7 +12,7 @@ export default function Dating() {
     {
       title: "Healthy Communication in Relationships",
       slug: "healthy-communication",
-      image: "/images/dating/healthy-communication.png",
+      image: "/images/dating/healthy-communication.jpg",
       excerpt:
         "Strong relationships are built on calm, honest communication that creates understanding instead of conflict.",
     },
@@ -33,7 +33,7 @@ export default function Dating() {
     {
       title: "Building Trust and Emotional Connection",
       slug: "building-trust",
-      image: "/images/dating/building-trust.png",
+      image: "/images/dating/building-trust.jpg",
       excerpt:
         "Trust is built through consistency, honesty, and emotional safety — not force or pressure.",
     },
