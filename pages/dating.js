@@ -233,4 +233,6 @@ Never shrink yourself to be adored. The right man rises to meet you.`
   ))}
 </section>
     
-        
+   </main>  
+    );
+       }
