@@ -1,158 +1,135 @@
-import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 export default function Dating() {
-  const blogs = [   
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    cardsRef.current.forEach((card) => card && observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const blogs = [
     {
       title: "How to Make Your Man Worship You (Without Losing Yourself)",
       image: "/images/dating/dating-communication.png",
-      content: `A man doesn’t worship a woman because she controls him.
+      content: `A man does not worship a woman because she controls him. He does so because of how she makes him feel emotionally safe, inspired, and respected.
 
-He does it because of how she makes him feel.
+Self‑respect comes first. A woman who values herself naturally attracts admiration.
 
-1. Master self‑respect
-Know your worth. Set boundaries. Stop chasing validation.
-
-2. Let him feel needed
-Appreciate his effort. Trust his strength. Avoid control.
-
-3. Communicate calmly
-Speak with clarity. Listen deeply. Avoid emotional explosions.
-
-4. Keep your own life
-Passions, goals, independence make you magnetic.
-
-5. Create emotional safety
-When he feels safe, he opens up fully.`
+Create space for appreciation, calm communication, independence, and emotional safety. These traits make a woman unforgettable.`
     },
     {
       title: "Healthy Communication in Relationships",
       image: "/images/dating/healthy-communication.png",
-      content: `Healthy communication is about safety, not winning.
+      content: `Healthy communication is calm, honest, and respectful.
 
-• Speak honestly
-• Listen without interrupting
-• Validate feelings
-• Stay calm under pressure
-
-Strong communication builds trust and intimacy.`
+Speak with clarity, listen actively, and avoid emotional reactions. Emotional maturity builds lasting attraction and deep trust.`
     },
     {
       title: "5 Red Flags You Should Never Ignore",
       image: "/images/dating/red-flags.png",
-      content: `1. Inconsistency
-2. Disrespect
-3. Lack of accountability
-4. Emotional manipulation
-5. Dishonesty
+      content: `Disrespect, inconsistency, emotional manipulation, lack of accountability, and dishonesty are signs to walk away.
 
-Ignoring red flags leads to pain. Awareness protects you.`
+Ignoring red flags today leads to heartbreak tomorrow.`
     },
     {
       title: "How to Make a Great First Impression on a Date",
       image: "/images/dating/first-impression.png",
-      content: `First impressions matter.
+      content: `Confidence, eye contact, authenticity, and good energy matter more than looks.
 
-• Dress confidently
-• Maintain eye contact
-• Listen more than you speak
-• Be authentic
-• Stay present
-
-Confidence and warmth create attraction.`
+Be present, relaxed, and genuinely interested. First impressions are emotional.`
     },
     {
       title: "Building Trust and Emotional Connection",
       image: "/images/dating/building-trust.png",
-      content: `Trust grows through consistency.
+      content: `Trust is built through consistency, honesty, and emotional availability.
 
-• Keep your word
-• Show empathy
-• Communicate openly
-• Be emotionally available
-
-Connection deepens when trust is safe.`
+When someone feels safe with you, connection grows naturally.`
     }
   ];
 
   return (
-    <main style={{ padding: "3rem", background: "#0f172a", minHeight: "100vh" }}>
-      <h1 style={{ color: "#fff", marginBottom: "2rem" }}>Dating & Relationships</h1>
+    <main style={{ background: "#0b0b0b", minHeight: "100vh", padding: "3rem 1.5rem" }}>
+      <h1 style={{
+        color: "#fff",
+        fontSize: "2.5rem",
+        fontWeight: "800",
+        marginBottom: "2rem",
+        textAlign: "center"
+      }}>
+        Dating & Relationships
+      </h1>
 
-      <section
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "2rem"
-        }}
-      >
+      <section style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+        gap: "1.8rem"
+      }}>
         {blogs.map((blog, index) => (
           <div
             key={index}
+            ref={(el) => (cardsRef.current[index] = el)}
+            className="reveal"
             style={{
               position: "relative",
-              height: "420px",
-              borderRadius: "20px",
+              height: "460px",
+              borderRadius: "18px",
               overflow: "hidden",
-              boxShadow: "0 20px 40px rgba(0,0,0,0.4)"
+              backgroundImage: `url(${blog.image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              boxShadow: "0 30px 60px rgba(0,0,0,0.6)"
             }}
           >
-            {/* Background image */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                backgroundImage: `url(${blog.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                filter: "brightness(0.6)"
-              }}
-            />
+            <div style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.2))"
+            }} />
 
-            {/* Overlay */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.25))"
-              }}
-            />
-
-            {/* Scrollable content */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                padding: "1.5rem",
-                color: "#fff",
-                display: "flex",
-                flexDirection: "column"
-              }}
-            >
-              <h2 style={{ marginBottom: "1rem" }}>{blog.title}</h2>
-
-              <div
-                style={{
-                  overflowY: "auto",
-                  paddingRight: "0.5rem",
-                  lineHeight: "1.6",
-                  fontSize: "0.95rem"
-                }}
-              >
-                {blog.content.split("\n").map((line, i) => (
-                  <p key={i} style={{ marginBottom: "0.75rem" }}>
-                    {line}
-                  </p>
-                ))}
-              </div>
+            <div style={{
+              position: "absolute",
+              bottom: 0,
+              padding: "1.5rem",
+              color: "#fff",
+              maxHeight: "70%",
+              overflowY: "auto"
+            }}>
+              <h2 style={{ fontSize: "1.25rem", fontWeight: "700", marginBottom: "0.6rem" }}>
+                {blog.title}
+              </h2>
+              <p style={{ fontSize: "0.95rem", lineHeight: "1.6", color: "#d1d5db" }}>
+                {blog.content}
+              </p>
             </div>
           </div>
         ))}
       </section>
+
+      <style jsx>{`
+        .reveal {
+          opacity: 0;
+          transform: translateY(60px) scale(0.96);
+          transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.show {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      `}</style>
     </main>
   );
-}
-
-    
-        
-          
+        }
+      
