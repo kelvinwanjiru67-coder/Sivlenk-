@@ -79,85 +79,92 @@ When someone feels safe with you, connection grows naturally.`
         gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
         gap: "1.8rem"
       }}>
+
         {blogs.map((blog, index) => (
-          <a
-  key={index}
-  href={`/dating/${blog.slug || index}`}
-  onMouseEnter={() => setHovered(index)}
-  onMouseLeave={() => setHovered(null)}
-  style={{
-    position: "relative",
-    height: "460px",
-    borderRadius: "24px",
-    overflow: "hidden",
-    textDecoration: "none",
-    transform: hovered === index ? "translateY(-8px)" : "translateY(0)",
-    transition: "transform 0.45s ease",
-    boxShadow:
-      hovered === index
-        ? "0 30px 70px rgba(0,0,0,0.75)"
-        : "0 18px 40px rgba(0,0,0,0.45)",
-  }}
->
+     <a
+    key={index}
+    href={`/dating/${blog.slug || index}`}
+    onMouseEnter={() => setHovered(index)}
+    onMouseLeave={() => setHovered(null)}
+    style={{
+      position: "relative",
+      height: "460px",
+      borderRadius: "24px",
+      overflow: "hidden",
+      textDecoration: "none",
+      transform: hovered === index ? "translateY(-8px)" : "translateY(0)",
+      transition: "transform 0.45s ease",
+      boxShadow:
+        hovered === index
+          ? "0 30px 70px rgba(0,0,0,0.75)"
+          : "0 18px 40px rgba(0,0,0,0.45)",
+    }}
+  >
+
+    {/* Background Image */}
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        backgroundImage: `url(${blog.image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        transform: hovered === index ? "scale(1.08)" : "scale(1)",
+        transition: "transform 1.2s ease",
+        filter: "brightness(0.8)",
+      }}
+    />
+
+    {/* Dark Gradient Overlay */}
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        background:
+          "linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15) 60%)",
+      }}
+    />
+
+    {/* Scrollable Content */}
+    <div
+      style={{
+        position: "absolute",
+        bottom: 0,
+        padding: "1.5rem",
+        color: "#fff",
+        maxHeight: "70%",
+        overflowY: "auto",
+      }}
+    >
+      <span
+        style={{
+          fontSize: "0.75rem",
+          letterSpacing: "1px",
+          textTransform: "uppercase",
+          color: "#34d399",
+        }}
+      >
+        Dating
+      </span>
+
+      <h2
+        style={{
+          marginTop: "0.4rem",
+          fontSize: "1.35rem",
+          lineHeight: "1.35",
+          fontWeight: "700",
+          textShadow:
+            hovered === index ? "0 6px 30px rgba(0,0,0,0.8)" : "none",
+          transition: "text-shadow 0.4s ease",
+        }}
+      >
+        {blog.title}
+      </h2>
+
+      <p style={{ fontSize: "0.95rem", lineHeight: "1.6", color: "#d1d5db" }}>
+        {blog.content}
+      </p>
+    </div>
   </a>
-            <div
-  style={{
-    position: "absolute",
-    inset: 0,
-    backgroundImage: `url(${blog.image})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    transform: hovered === index ? "scale(1.08)" : "scale(1)",
-    transition: "transform 1.2s ease",
-    filter: "brightness(0.8)",
-  }}
-/>
+))}
   
-
-            <div style={{
-              position: "absolute",
-              bottom: 0,
-              padding: "1.5rem",
-              color: "#fff",
-              maxHeight: "70%",
-              overflowY: "auto"
-            }}>
-              <h2
-  style={{
-    marginTop: "0.4rem",
-    fontSize: "1.35rem",
-    lineHeight: "1.35",
-    fontWeight: "700",
-    textShadow:
-      hovered === index
-        ? "0 6px 30px rgba(0,0,0,0.8)"
-        : "none",
-    transition: "text-shadow 0.4s ease",
-  }}
->
-  {blog.title}
- </h2>
-              <p style={{ fontSize: "0.95rem", lineHeight: "1.6", color: "#d1d5db" }}>
-                {blog.content}
-              </p>
-             
-            </div>
-          </div>
-        ))}
-      </section>
-
-      <style jsx>{`
-        .reveal {
-          opacity: 0;
-          transform: translateY(60px) scale(0.96);
-          transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.show {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      `}</style>
-    </main>
-  );
-        }
-      
