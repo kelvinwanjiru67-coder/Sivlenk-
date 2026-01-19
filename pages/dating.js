@@ -99,12 +99,20 @@ When someone feels safe with you, connection grows naturally.`
         : "0 18px 40px rgba(0,0,0,0.45)",
   }}
 >
+  </a>
+            <div
+  style={{
+    position: "absolute",
+    inset: 0,
+    backgroundImage: `url(${blog.image})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    transform: hovered === index ? "scale(1.08)" : "scale(1)",
+    transition: "transform 1.2s ease",
+    filter: "brightness(0.8)",
+  }}
+/>
   
-            <div style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.2))"
-            }} />
 
             <div style={{
               position: "absolute",
@@ -114,12 +122,25 @@ When someone feels safe with you, connection grows naturally.`
               maxHeight: "70%",
               overflowY: "auto"
             }}>
-              <h2 style={{ fontSize: "1.25rem", fontWeight: "700", marginBottom: "0.6rem" }}>
-                {blog.title}
-              </h2>
+              <h2
+  style={{
+    marginTop: "0.4rem",
+    fontSize: "1.35rem",
+    lineHeight: "1.35",
+    fontWeight: "700",
+    textShadow:
+      hovered === index
+        ? "0 6px 30px rgba(0,0,0,0.8)"
+        : "none",
+    transition: "text-shadow 0.4s ease",
+  }}
+>
+  {blog.title}
+ </h2>
               <p style={{ fontSize: "0.95rem", lineHeight: "1.6", color: "#d1d5db" }}>
                 {blog.content}
               </p>
+             
             </div>
           </div>
         ))}
