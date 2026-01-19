@@ -1,6 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Dating() {
+  const [hovered, setHovered] = useState(null);
+  
   const cardsRef = useRef([]);
 
   useEffect(() => {
@@ -78,21 +80,26 @@ When someone feels safe with you, connection grows naturally.`
         gap: "1.8rem"
       }}>
         {blogs.map((blog, index) => (
-          <div
-            key={index}
-            ref={(el) => (cardsRef.current[index] = el)}
-            className="reveal"
-            style={{
-              position: "relative",
-              height: "460px",
-              borderRadius: "18px",
-              overflow: "hidden",
-              backgroundImage: `url(${blog.image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              boxShadow: "0 30px 60px rgba(0,0,0,0.6)"
-            }}
-          >
+          <a
+  key={index}
+  href={`/dating/${blog.slug || index}`}
+  onMouseEnter={() => setHovered(index)}
+  onMouseLeave={() => setHovered(null)}
+  style={{
+    position: "relative",
+    height: "460px",
+    borderRadius: "24px",
+    overflow: "hidden",
+    textDecoration: "none",
+    transform: hovered === index ? "translateY(-8px)" : "translateY(0)",
+    transition: "transform 0.45s ease",
+    boxShadow:
+      hovered === index
+        ? "0 30px 70px rgba(0,0,0,0.75)"
+        : "0 18px 40px rgba(0,0,0,0.45)",
+  }}
+>
+  
             <div style={{
               position: "absolute",
               inset: 0,
