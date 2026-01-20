@@ -43,12 +43,22 @@ export default function Dating() {
 
   return (
     <main
-      style={{
-        minHeight: "100vh",
-        background: "#020617",
-        padding: "2.5rem 1rem",
-      }}
-    >
+  style={{
+    minHeight: "100svh",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    background: "#020617",
+  }}
+>
+      <div
+  style={{
+    width: "100%",
+    maxWidth: "1400px",
+    padding: "clamp(1.2rem, 3vw, 3rem)",
+  }}
+>
+
       {/* Page Header */}
       <section
         style={{
