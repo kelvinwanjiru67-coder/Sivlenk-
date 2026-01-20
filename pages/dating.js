@@ -78,7 +78,7 @@ Emotional connection deepens when actions match words.
     <main
       style={{
         minHeight: "100vh",
-        width: "100%",
+        width: "100vw",
         background: "#020617",
         overflowX: "hidden",
       }}
