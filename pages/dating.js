@@ -180,6 +180,7 @@ export default function Dating() {
               >
                 {blog.content}
               </p>
+             </div>
             </div>
           </a>
         ))}
