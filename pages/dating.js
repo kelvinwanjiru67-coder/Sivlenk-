@@ -78,7 +78,7 @@ Emotional connection deepens when actions match words.
     <main
       style={{
         minHeight: "100vh",
-        width: "100%",
+        width: "100vw",
         background: "#020617",
         overflowX: "hidden",
         display: "flex",
@@ -88,7 +88,6 @@ Emotional connection deepens when actions match words.
       <div
         style={{
           width: "100%",
-          maxWidth: "1500px",
           padding: "clamp(1.2rem, 3vw, 3rem)",
         }}
       >
@@ -105,8 +104,9 @@ Emotional connection deepens when actions match words.
         {/* Blog Grid */}
         <section
           style={{
+            width: "100%"
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
             gap: "2.2rem",
           }}
         >
@@ -125,7 +125,7 @@ Emotional connection deepens when actions match words.
                 onMouseLeave={() => setHovered(null)}
                 style={{
                   position: "relative",
-                  height: "480px",
+                  height: "min(85vh, 520px)",
                   borderRadius: "26px",
                   overflow: "hidden",
                   textDecoration: "none",
