@@ -81,8 +81,6 @@ Emotional connection deepens when actions match words.
         width: "100vw",
         background: "#020617",
         overflowX: "hidden",
-        display: "flex",
-        justifyContent: "center",
       }}
     >
       <div
