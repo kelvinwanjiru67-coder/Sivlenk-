@@ -61,13 +61,13 @@ export default function Dating() {
 
       {/* Page Header */}
       <section
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto 3rem",
-          textAlign: "center",
-          color: "#e5e7eb",
-        }}
-      >
+  style={{
+    marginBottom: "3rem",
+    textAlign: "center",
+    color: "#e5e7eb",
+  }}
+>
+
         <h1 style={{ fontSize: "2.2rem", marginBottom: "0.5rem" }}>
           Dating & Relationships
         </h1>
@@ -77,16 +77,16 @@ export default function Dating() {
       </section>
 
       {/* Blog Grid */}
-      <section
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "1.8rem",
-        }}
-      >
-        {blogs.map((blog, index) => (
+        <section
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "1.8rem",
+    alignItems: "stretch",
+  }}
+>
+
+       {blogs.map((blog, index) => (
           <a
             key={index}
             href={`/dating/${blog.slug}`}
