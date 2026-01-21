@@ -1,228 +1,217 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Dating() {
-  const [visible, setVisible] = useState([]);
   const [hovered, setHovered] = useState(null);
+  const [visible, setVisible] = useState([]);
+
+  // Fix mobile viewport height
+  useEffect(() => {
+    const setVH = () => {
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight * 0.01}px`
+      );
+    };
+    setVH();
+    window.addEventListener("resize", setVH);
+    return () => window.removeEventListener("resize", setVH);
+  }, []);
+
+  // Reveal on scroll
+  useEffect(() => {
+    const onScroll = () => {
+      document.querySelectorAll(".reveal").forEach((el, i) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          setVisible((v) => [...new Set([...v, i])]);
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const blogs = [
     {
-      title: "How to Make Your Man Worship You (Without Losing Yourself)",
+      title: "How to Make Your Man Worship You",
       slug: "make-him-worship-you",
       image: "/images/dating/dating-communication.png",
-      content: `
-A man doesn't worship a woman because she controls him.
-He adores her because of how she makes him feel.
-
-1. Master Self-Respect
-Nothing is more attractive than a woman who knows her worth.
-
-2. Let Him Feel Needed
-Men bond deeply when they feel trusted and appreciated.
-
-3. Communicate Calmly
-Emotional maturity creates irresistible attraction.
-
-4. Maintain Your Own Life
-Independence is magnetic.
-
-5. Create Emotional Safety
-When a man feels safe, he opens his heart fully.
-      `,
+      content:
+        "True devotion comes from emotional safety, self-respect, and feminine confidence. Learn how to inspire desire without control, neediness, or chasing.",
+      minutes: 6,
     },
     {
-      title: "The Psychology of First Impressions",
+      title: "Healthy Communication in Relationships",
+      slug: "healthy-communication",
+      image: "/images/dating/healthy-communication.png",
+      content:
+        "Healthy communication builds attraction, trust, and emotional depth. Learn how to express needs calmly, listen deeply, and avoid emotional shutdown.",
+      minutes: 5,
+    },
+    {
+      title: "5 Red Flags You Should Never Ignore",
+      slug: "dating-red-flags",
+      image: "/images/dating/red-flags.png",
+      content:
+        "Some behaviors predict emotional pain. Learn the subtle warning signs early so you don’t invest where respect, safety, and honesty are missing.",
+      minutes: 4,
+    },
+    {
+      title: "How to Make a Great First Impression on a Date",
       slug: "first-impression",
       image: "/images/dating/first-impression.png",
-      content: `
-First impressions are emotional, not logical.
-
-Your body language, tone, and presence speak before words.
-Confidence, warmth, and calm energy shape attraction instantly.
-      `,
+      content:
+        "First impressions are emotional, not logical. Discover how presence, energy, and confidence create instant attraction before words even matter.",
+      minutes: 5,
     },
     {
       title: "Building Trust and Emotional Connection",
       slug: "building-trust",
       image: "/images/dating/building-trust.png",
-      content: `
-Trust is built through consistency, not promises.
-Emotional connection deepens when actions match words.
-      `,
+      content:
+        "Trust grows through consistency, empathy, and emotional availability. Learn how to create deep bonds that feel safe, exciting, and secure.",
+      minutes: 6,
     },
   ];
-
-  // Reading time calculation
-  const getReadingTime = (text) => {
-    const words = text.trim().split(/\s+/).length;
-    return Math.max(1, Math.ceil(words / 200));
-  };
-
-  // Reveal on scroll
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible((prev) => [...prev, entry.target.dataset.index]);
-          }
-        });
-      },
-      { threshold: 0.25 }
-    );
-
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <main
       style={{
-        minHeight: "100vh",
         width: "100vw",
+        minHeight: "calc(var(--vh, 1vh) * 100)",
         background: "#020617",
         overflowX: "hidden",
+        padding: "clamp(1.5rem, 4vw, 3rem)",
       }}
     >
-      <div
+      {/* Header */}
+      <section
         style={{
-          width: "100%",
-          padding: "clamp(1.2rem, 3vw, 3rem)",
+          textAlign: "center",
+          color: "#e5e7eb",
+          marginBottom: "3rem",
         }}
       >
-        {/* Header */}
-        <section style={{ textAlign: "center", marginBottom: "4rem" }}>
-          <h1 style={{ fontSize: "2.6rem", color: "#e5e7eb" }}>
-            Dating & Relationships
-          </h1>
-          <p style={{ color: "#94a3b8", marginTop: "0.6rem" }}>
-            Modern love, emotional intelligence & meaningful connection
-          </p>
-        </section>
+        <h1 style={{ fontSize: "2.6rem", marginBottom: "0.5rem" }}>
+          Dating & Relationships
+        </h1>
+        <p style={{ color: "#94a3b8" }}>
+          Modern love, emotional intelligence, and meaningful connections
+        </p>
+      </section>
 
-        {/* Blog Grid */}
-        <section
-          style={{
-            width: "100%"
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "2.2rem",
-          }}
-        >
-          {blogs.map((blog, index) => {
-            const readingTime = getReadingTime(blog.content);
+      {/* Grid */}
+      <section
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "2rem",
+        }}
+      >
+        {blogs.map((blog, index) => (
+          <Link
+            href={`/dating/${blog.slug}`}
+            key={index}
+            onMouseEnter={() => setHovered(index)}
+            onMouseLeave={() => setHovered(null)}
+            className={`reveal ${
+              visible.includes(index) ? "show" : ""
+            }`}
+            style={{
+              position: "relative",
+              height: "520px",
+              borderRadius: "26px",
+              overflow: "hidden",
+              transform:
+                hovered === index ? "translateY(-10px)" : "translateY(0)",
+              transition: "transform 0.45s ease",
+              boxShadow:
+                hovered === index
+                  ? "0 40px 90px rgba(0,0,0,.8)"
+                  : "0 20px 50px rgba(0,0,0,.5)",
+              textDecoration: "none",
+            }}
+          >
+            {/* Background */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                backgroundImage: `url(${blog.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                transform:
+                  hovered === index ? "scale(1.08)" : "scale(1)",
+                transition: "transform 1.4s ease",
+                filter: "brightness(0.85)",
+              }}
+            />
 
-            return (
-              <a
-                href={`/dating/${blog.slug}`}
-                key={index}
-                data-index={index}
-                className={`reveal ${
-                  visible.includes(String(index)) ? "show" : ""
-                }`}
-                onMouseEnter={() => setHovered(index)}
-                onMouseLeave={() => setHovered(null)}
+            {/* Gradient */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.1) 60%)",
+              }}
+            />
+
+            {/* Content */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: 0,
+                padding: "1.8rem",
+                color: "#fff",
+                maxHeight: "70%",
+                overflowY: "auto",
+              }}
+            >
+              <span
                 style={{
-                  position: "relative",
-                  height: "min(85vh, 520px)",
-                  borderRadius: "26px",
-                  overflow: "hidden",
-                  textDecoration: "none",
-                  transform:
-                    hovered === index
-                      ? "translateY(-10px)"
-                      : "translateY(0)",
-                  transition: "all 0.45s ease",
-                  boxShadow:
-                    hovered === index
-                      ? "0 35px 80px rgba(0,0,0,0.75)"
-                      : "0 18px 40px rgba(0,0,0,0.45)",
+                  fontSize: "0.75rem",
+                  color: "#34d399",
+                  letterSpacing: "1px",
+                  textTransform: "uppercase",
                 }}
               >
-                {/* Background Image */}
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    backgroundImage: `url(${blog.image})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    transform:
-                      hovered === index ? "scale(1.1)" : "scale(1)",
-                    transition: "transform 1.2s ease",
-                    filter: "brightness(0.75)",
-                  }}
-                />
+                {blog.minutes} min read
+              </span>
 
-                {/* Gradient */}
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                      "linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.2))",
-                  }}
-                />
+              <h2
+                style={{
+                  marginTop: "0.5rem",
+                  fontSize: "1.4rem",
+                  lineHeight: "1.3",
+                }}
+              >
+                {blog.title}
+              </h2>
 
-                {/* Content */}
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: 0,
-                    padding: "1.6rem",
-                    color: "#fff",
-                    maxHeight: "70%",
-                    overflowY: "auto",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "0.8rem",
-                      color: "#c7d2fe",
-                      opacity: 0.9,
-                    }}
-                  >
-                    ⏱ {readingTime} min read
-                  </span>
+              <p
+                style={{
+                  fontSize: "0.95rem",
+                  lineHeight: "1.6",
+                  color: "#d1d5db",
+                  marginTop: "0.6rem",
+                }}
+              >
+                {blog.content}
+              </p>
+            </div>
+          </Link>
+        ))}
+      </section>
 
-                  <h2
-                    style={{
-                      fontSize: "1.35rem",
-                      fontWeight: 700,
-                      marginTop: "0.4rem",
-                      textShadow:
-                        hovered === index
-                          ? "0 6px 28px rgba(0,0,0,0.85)"
-                          : "none",
-                      transition: "text-shadow 0.4s ease",
-                    }}
-                  >
-                    {blog.title}
-                  </h2>
-
-                  <p
-                    style={{
-                      fontSize: "0.95rem",
-                      lineHeight: "1.6",
-                      color: "#d1d5db",
-                      marginTop: "0.6rem",
-                      whiteSpace: "pre-line",
-                    }}
-                  >
-                    {blog.content}
-                  </p>
-                </div>
-              </a>
-            );
-          })}
-        </section>
-      </div>
-
-      {/* Styles */}
+      {/* Animations */}
       <style jsx>{`
         .reveal {
           opacity: 0;
-          transform: translateY(70px) scale(0.96);
-          transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+          transform: translateY(60px) scale(0.95);
+          transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.show {
           opacity: 1;
@@ -231,5 +220,4 @@ Emotional connection deepens when actions match words.
       `}</style>
     </main>
   );
-      }
-      
+}
