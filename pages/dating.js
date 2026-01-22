@@ -79,7 +79,7 @@ export default function Dating() {
   return (
     <main
       style={{
-        width: "100vw",
+        width: "100%",
         minHeight: "calc(var(--vh, 1vh) * 100)",
         background: "#020617",
         overflowX: "hidden",
