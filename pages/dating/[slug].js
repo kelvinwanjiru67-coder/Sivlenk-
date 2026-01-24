@@ -5,7 +5,7 @@ import Link from "next/link";
 const BLOGS = {
   "make-him-worship-you": {
     title: "How to Make Your Man Worship You",
-    image: "/images/dating/dating-communication.png",
+    image: "/images/dating/dating-communication.jpg",
     minutes: 6,
     content: `
 True devotion is not forced — it is inspired.
@@ -79,7 +79,7 @@ First impressions are emotional — not logical.
 
   "building-trust": {
     title: "Building Trust and Emotional Connection",
-    image: "/images/dating/building-trust.png",
+    image: "/images/dating/building-trust.jpg",
     minutes: 6,
     content: `
 Trust is built through consistency, empathy, and honesty.
