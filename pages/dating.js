@@ -37,7 +37,7 @@ export default function Dating() {
     {
       title: "How to Make Your Man Worship You",
       slug: "make-him-worship-you",
-      image: "/images/dating/dating-communication.png",
+      image: "/images/dating/dating-communication.jpg",
       content:
         "True devotion comes from emotional safety, self-respect, and feminine confidence. Learn how to inspire desire without control, neediness, or chasing.",
       minutes: 6,
@@ -69,7 +69,7 @@ export default function Dating() {
     {
       title: "Building Trust and Emotional Connection",
       slug: "building-trust",
-      image: "/images/dating/building-trust.png",
+      image: "/images/dating/building-trust.jpg",
       content:
         "Trust grows through consistency, empathy, and emotional availability. Learn how to create deep bonds that feel safe, exciting, and secure.",
       minutes: 6,
