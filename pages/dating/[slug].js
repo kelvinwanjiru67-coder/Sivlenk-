@@ -108,115 +108,113 @@ export default function DatingBlog() {
     );
   }
 
-  const blog = BLOGS[slug];
-
   return (
-    <>
-      <Head>
-        <title>{blog.title} | Sivlenk</title>
-        <meta name="description" content={blog.title} />
-      </Head>
+  <>
+    <Head>
+      <title>{blog.title} | Sivlenk</title>
+      <meta name="description" content={blog.title} />
+    </Head>
 
-      <main
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "#020617",
+        color: "#e5e7eb",
+        overflowX: "hidden",
+      }}
+    >
+      {/* Hero */}
+      <section
         style={{
-          minHeight: "100vh",
-          background: "#020617",
-          color: "#e5e7eb",
-          overflowX: "hidden",
+          height: "60vh",
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,.4), #020617), url(${blog.image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          display: "flex",
+          alignItems: "flex-end",
+          padding: "3rem",
         }}
       >
-        {/* Hero */}
-        <section
+        <div>
+          <p style={{ color: "#34d399", fontSize: "0.85rem" }}>
+            {blog.minutes} min read
+          </p>
+          <h1 style={{ fontSize: "2.5rem", marginTop: "0.5rem" }}>
+            {blog.title}
+          </h1>
+        </div>
+      </section>
+
+      {/* Content */}
+      <article
+        style={{
+          maxWidth: "850px",
+          margin: "0 auto",
+          padding: "3rem 1.5rem",
+          fontSize: "1.05rem",
+          lineHeight: "1.9",
+          whiteSpace: "pre-line",
+        }}
+      >
+        {blog.content}
+
+        {/* CTA */}
+        <div
           style={{
-            height: "60vh",
-            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,.4), #020617), url(${blog.image})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            display: "flex",
-            alignItems: "flex-end",
-            padding: "3rem",
+            marginTop: "4rem",
+            padding: "2rem",
+            borderRadius: "16px",
+            background: "linear-gradient(135deg, #064e3b, #022c22)",
           }}
         >
-          <div>
-            <p style={{ color: "#34d399", fontSize: "0.85rem" }}>
-              {blog.minutes} min read
-            </p>
-            <h1 style={{ fontSize: "2.5rem", marginTop: "0.5rem" }}>
-              {blog.title}
-            </h1>
-          </div>
-        </section>
-
-        {/* Content */}
-        <article
-          style={{
-            maxWidth: "850px",
-            margin: "0 auto",
-            padding: "3rem 1.5rem",
-            fontSize: "1.05rem",
-            lineHeight: "1.9",
-            whiteSpace: "pre-line",
-          }}
-        >
-          {blog.content}
-
-          {/* CTA */}
-          <div
+          <h3>Want deeper relationship mastery?</h3>
+          <p>
+            Discover proven emotional attraction principles used by top
+            relationship coaches.
+          </p>
+          <a
+            href="#"
             style={{
-              marginTop: "4rem",
-              padding: "2rem",
-              borderRadius: "16px",
-              background:
-                "linear-gradient(135deg, #064e3b, #022c22)",
+              display: "inline-block",
+              marginTop: "1rem",
+              padding: "0.9rem 1.6rem",
+              borderRadius: "999px",
+              background: "#34d399",
+              color: "#022c22",
+              fontWeight: "600",
+              textDecoration: "none",
             }}
           >
-            <h3>Want deeper relationship mastery?</h3>
-            <p>
-              Discover proven emotional attraction principles used by top
-              relationship coaches.
-            </p>
-            <a
-              href="#"
-              style={{
-                display: "inline-block",
-                marginTop: "1rem",
-                padding: "0.9rem 1.6rem",
-                borderRadius: "999px",
-                background: "#34d399",
-                color: "#022c22",
-                fontWeight: "600",
-                textDecoration: "none",
-              }}
-            >
-              Learn More →
-            </a>
-          </div>
+            Learn More →
+          </a>
+        </div>
 
-          <p style={{ marginTop: "2rem" }}>
-            <Link href="/dating">
-  <span className="back-btn">← Back to Dating</span>
-</Link>
-          
-            
-          </p>
-        </article>
-      </main>
-    </>
-  );
+        {/* BACK BUTTON */}
+        <div style={{ marginTop: "2rem" }}>
+          <Link href="/dating">
+            <span className="back-btn">← Back to Dating</span>
+          </Link>
+        </div>
+      </article>
+    </main>
+
+    {/* ✅ STYLE MUST BE INSIDE RETURN */}
     <style jsx>{`
-  .back-btn {
-    display: inline-block;
-    margin-top: 40px;
-    color: #9ee6c1;
-    font-weight: 600;
-    cursor: pointer;
-    position: relative;
-    z-index: 10;
-  }
+      .back-btn {
+        display: inline-block;
+        margin-top: 40px;
+        color: #9ee6c1;
+        font-weight: 600;
+        cursor: pointer;
+        position: relative;
+        z-index: 10;
+      }
 
-  .back-btn:hover {
-    text-decoration: underline;
+      .back-btn:hover {
+        text-decoration: underline;
+      }
+    `}</style>
+  </>
+);
   }
-`}</style>
-          }
     
