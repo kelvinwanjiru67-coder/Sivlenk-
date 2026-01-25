@@ -194,13 +194,29 @@ export default function DatingBlog() {
 
           <p style={{ marginTop: "2rem" }}>
             <Link href="/dating">
-  <span style={styles.backButton}>← Back to Dating</span>
+  <span className="back-btn">← Back to Dating</span>
 </Link>
+          
             
           </p>
         </article>
       </main>
     </>
   );
-    }
+    <style jsx>{`
+  .back-btn {
+    display: inline-block;
+    margin-top: 40px;
+    color: #9ee6c1;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+  }
+
+  .back-btn:hover {
+    text-decoration: underline;
+  }
+`}</style>
+          }
     
