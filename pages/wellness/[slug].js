@@ -201,13 +201,15 @@ const styles = {
     marginBottom: "24px",
     color: "#d5ddd9",
   },
+   backButton: {
+  display: "inline-block",
+  marginTop: "40px",
+  color: "#9ee6c1",
+  fontWeight: 600,
+  cursor: "pointer",
+  position: "relative",
+  zIndex: 10,
 
-  backButton: {
-    display: "inline-block",
-    marginTop: "40px",
-    textDecoration: "none",
-    color: "#9ee6c1",
-    fontWeight: 600,
   },
 
   notFound: {
