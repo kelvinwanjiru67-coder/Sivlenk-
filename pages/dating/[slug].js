@@ -193,7 +193,10 @@ export default function DatingBlog() {
           </div>
 
           <p style={{ marginTop: "2rem" }}>
-            <Link href="/dating">← Back to Dating</Link>
+            <Link href="/dating">
+  <span style={styles.backButton}>← Back to Dating</span>
+</Link>
+            
           </p>
         </article>
       </main>
