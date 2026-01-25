@@ -135,9 +135,10 @@ export default function WellnessBlog() {
           </p>
         ))}
 
-        <Link href="/wellness" style={styles.backButton}>
-          ← Back to Wellness
-        </Link>
+        <Link href="/wellness">
+  <span style={styles.backButton}>← Back to Wellness</span>
+</Link>
+
       </motion.section>
     </article>
   );
