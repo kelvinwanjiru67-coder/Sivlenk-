@@ -2,30 +2,15 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-/* ===== BLOG DATA ===== */
 const blogs = [
   {
-    title: "How to Make Your Man Worship You (Without Losing Yourself)",
+    title: "How to Make Your Man Worship You",
     slug: "make-him-worship-you",
     image: "/images/dating/dating-communication.jpg",
     content: `
-A man doesn’t worship a woman because she controls him.
-He adores her because of how she makes him feel — safe, respected, inspired.
+True devotion is created through emotional safety, self-respect, and calm confidence.
 
-1. Master Self-Respect  
-Nothing is more attractive than grounded confidence.
-
-2. Let Him Feel Needed (Not Controlled)  
-Men bond through purpose, not pressure.
-
-3. Communicate Calmly  
-Emotional maturity builds desire.
-
-4. Maintain Your Own Life  
-Independence is magnetic.
-
-5. Create Emotional Safety  
-Safety creates devotion.
+A woman who honors herself invites admiration naturally.
 `,
   },
   {
@@ -34,9 +19,8 @@ Safety creates devotion.
     image: "/images/dating/first-impression.png",
     content: `
 First impressions are emotional, not logical.
-Your energy speaks before words.
 
-Presence, calm body language, and authenticity matter most.
+Your presence speaks before your words.
 `,
   },
   {
@@ -44,9 +28,7 @@ Presence, calm body language, and authenticity matter most.
     slug: "building-trust",
     image: "/images/dating/building-trust.jpg",
     content: `
-Trust is built through consistency, availability, and integrity.
-
-Connection deepens when both partners feel safe to be real.
+Trust grows through consistency, availability, and emotional honesty.
 `,
   },
   {
@@ -54,10 +36,7 @@ Connection deepens when both partners feel safe to be real.
     slug: "healthy-communication",
     image: "/images/dating/healthy-communication.png",
     content: `
-Healthy communication isn’t about winning —
-it’s about understanding.
-
-Empathy strengthens long-term intimacy.
+Healthy communication creates emotional intimacy and long-term connection.
 `,
   },
   {
@@ -65,22 +44,20 @@ Empathy strengthens long-term intimacy.
     slug: "dating-red-flags",
     image: "/images/dating/red-flags.png",
     content: `
-Ignoring red flags early creates pain later.
-
-Disrespect, inconsistency, manipulation — never minimize them.
+Ignoring red flags early often leads to deeper emotional pain later.
 `,
   },
 ];
 
-/* ===== READING TIME ===== */
 const readingTime = (text) =>
   Math.ceil(text.trim().split(/\s+/).length / 200);
 
-export default function DatingSlug() {
+export default function DatingArticle() {
   const router = useRouter();
   const { slug } = router.query;
 
   if (!slug) return null;
+
   const blog = blogs.find((b) => b.slug === slug);
   if (!blog) return null;
 
@@ -88,114 +65,158 @@ export default function DatingSlug() {
     <main
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(180deg, #020617, #020617)",
+        background: "#020617",
         padding: "clamp(1.5rem, 5vw, 4rem)",
         color: "#e5e7eb",
+        position: "relative",
       }}
     >
-      <article
-        style={{
-          maxWidth: "900px",
-          margin: "0 auto",
-        }}
-      >
-        {/* Title */}
+      <div className="ambientGlow" />
+
+      <article style={{ maxWidth: "900px", margin: "0 auto" }}>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          style={{
-            fontSize: "clamp(2rem, 4vw, 2.8rem)",
-            lineHeight: "1.25",
-            marginBottom: "0.6rem",
-            letterSpacing: "-0.02em",
-          }}
+          style={{ fontSize: "2.4rem", marginBottom: "0.5rem" }}
         >
           {blog.title}
         </motion.h1>
 
-        {/* Meta */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          style={{
-            color: "#9ca3af",
-            fontSize: "0.9rem",
-            marginBottom: "2rem",
-          }}
-        >
+        <p style={{ color: "#9ca3af", marginBottom: "2rem" }}>
           {readingTime(blog.content)} min read · Dating
-        </motion.p>
+        </p>
 
-        {/* Image */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9 }}
+          initial={{ scale: 1.05, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1 }}
           style={{
-            width: "100%",
-            height: "clamp(260px, 50vw, 420px)",
+            height: "420px",
             borderRadius: "22px",
             overflow: "hidden",
             marginBottom: "2.5rem",
-            boxShadow: "0 30px 80px rgba(0,0,0,0.45)",
           }}
         >
-          <img
+          <motion.img
             src={blog.image}
             alt={blog.title}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
+            whileHover={{ scale: 1.04 }}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </motion.div>
 
-        {/* Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25, duration: 0.8 }}
+        <div
           style={{
-            fontSize: "1.05rem",
             lineHeight: "1.9",
-            color: "#d1d5db",
+            fontSize: "1.05rem",
             whiteSpace: "pre-line",
           }}
         >
           {blog.content}
-        </motion.div>
+        </div>
 
-        {/* Back Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          style={{
-            marginTop: "4rem",
-            textAlign: "center",
-          }}
-        >
-          <Link href="/dating">
-            <span
-              style={{
-                display: "inline-block",
-                padding: "0.75rem 1.6rem",
-                borderRadius: "999px",
-                background: "rgba(52,211,153,0.12)",
-                color: "#34d399",
-                fontWeight: "600",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
-            >
-              ← Back to Dating
-            </span>
-          </Link>
-        </motion.div>
+        {/* Monetization */}
+        <div className="affiliateBox">
+          <span>Recommended</span>
+          <h4>The Ultimate Keto Meal Plan</h4>
+          <p>Trusted by thousands for energy & confidence.</p>
+          <a
+            href="https://www.claudiacaldwell.com/oto-uf61a?el=splittest-1214-bradflow-control#aff=Kelvis67"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Offer →
+          </a>
+        </div>
+
+        {/* Email */}
+        <div className="emailBox">
+          <h3>Get Smart Dating Insights</h3>
+          <p>Weekly tips. No spam.</p>
+          <input type="email" placeholder="Your email" />
+          <button>Subscribe</button>
+        </div>
+
+        {/* Related */}
+        <h3 style={{ marginTop: "4rem" }}>Related Articles</h3>
+        <div className="carousel">
+          {blogs
+            .filter((b) => b.slug !== blog.slug)
+            .map((b) => (
+              <Link key={b.slug} href={`/dating/${b.slug}`}>
+                <div className="carouselCard">
+                  <img src={b.image} />
+                  <span>{b.title}</span>
+                </div>
+              </Link>
+            ))}
+        </div>
+
+        {/* Back */}
+        <div style={{ textAlign: "center", marginTop: "4rem" }}>
+          <Link href="/dating">← Back to Dating</Link>
+        </div>
       </article>
+
+      <style jsx>{`
+        .ambientGlow {
+          position: fixed;
+          inset: 0;
+          background: radial-gradient(
+              600px at 20% 20%,
+              rgba(52, 211, 153, 0.08),
+              transparent 40%
+            ),
+            radial-gradient(
+              600px at 80% 60%,
+              rgba(99, 102, 241, 0.08),
+              transparent 40%
+            );
+          z-index: -1;
+        }
+
+        .affiliateBox {
+          margin: 4rem 0;
+          padding: 2rem;
+          border-left: 4px solid #34d399;
+          background: rgba(255, 255, 255, 0.04);
+          border-radius: 14px;
+        }
+
+        .emailBox {
+          margin-top: 3rem;
+          padding: 2rem;
+          background: rgba(255, 255, 255, 0.03);
+          border-radius: 20px;
+          text-align: center;
+        }
+
+        .carousel {
+          display: flex;
+          gap: 1.2rem;
+          overflow-x: auto;
+          margin-top: 1.5rem;
+        }
+
+        .carouselCard {
+          min-width: 220px;
+          background: rgba(255, 255, 255, 0.04);
+          border-radius: 14px;
+          overflow: hidden;
+        }
+
+        .carouselCard img {
+          width: 100%;
+          height: 140px;
+          object-fit: cover;
+        }
+
+        .carouselCard span {
+          padding: 0.8rem;
+          display: block;
+        }
+      `}</style>
     </main>
   );
-}
+    }
+  
