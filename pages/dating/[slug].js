@@ -62,7 +62,7 @@ Empathy strengthens long-term intimacy.
   },
   {
     title: "5 Red Flags You Should Never Ignore",
-    slug: "red-flags",
+    slug: "dating-red-flags",
     image: "/images/dating/red-flags.png",
     content: `
 Ignoring red flags early creates pain later.
