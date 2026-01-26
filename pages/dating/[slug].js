@@ -1,220 +1,180 @@
 import { useRouter } from "next/router";
-import Head from "next/head";
 import Link from "next/link";
 
-const BLOGS = {
-  "make-him-worship-you": {
-    title: "How to Make Your Man Worship You",
+const blogs = [
+  {
+    title: "How to Make Your Man Worship You (Without Losing Yourself)",
+    slug: "make-him-worship-you",
     image: "/images/dating/dating-communication.jpg",
-    minutes: 6,
     content: `
-True devotion is not forced — it is inspired.
+A man doesn’t “worship” a woman because she controls him or tries too hard.
+He adores her because of how she makes him feel — safe, respected, inspired.
 
-When a man feels emotionally safe, respected, and deeply desired,
-his natural instinct is to invest, protect, and cherish.
+### 1. Master Self-Respect First
+Nothing is more attractive than a woman who knows her worth.
+When you respect yourself, you don’t chase validation or tolerate disrespect.
 
-This article explores:
-• Feminine confidence vs neediness  
-• Emotional safety as attraction  
-• How self-respect creates desire  
-• What makes men emotionally attach  
+### 2. Let Him Feel Needed (Not Controlled)
+Men thrive when they feel useful and appreciated.
+Allow him to contribute, protect, and solve problems.
 
-The key is never control.
-It’s presence, polarity, and peace.
+### 3. Communicate Calmly
+Strong relationships are built on emotional maturity.
+Speak calmly, listen deeply, and express needs without blame.
+
+### 4. Maintain Your Own Life
+Your independence is magnetic.
+Have goals, passions, and a life outside the relationship.
+
+### 5. Create Emotional Safety
+When a man feels emotionally safe with you, he opens up fully.
+That’s when devotion naturally grows.
     `,
   },
-
-  "healthy-communication": {
-    title: "Healthy Communication in Relationships",
-    image: "/images/dating/healthy-communication.png",
-    minutes: 5,
-    content: `
-Healthy communication is the backbone of emotional intimacy.
-
-Learn how to:
-• Speak needs without blame  
-• Listen without defensiveness  
-• De-escalate conflict calmly  
-• Build emotional trust daily  
-
-When communication is safe,
-love becomes effortless.
-    `,
-  },
-
-  "dating-red-flags": {
-    title: "5 Red Flags You Should Never Ignore",
-    image: "/images/dating/red-flags.png",
-    minutes: 4,
-    content: `
-Some warning signs are whispers — others are alarms.
-
-This guide helps you identify:
-• Emotional manipulation  
-• Lack of accountability  
-• Inconsistent behavior  
-• Disrespect masked as humor  
-• Boundary violations  
-
-Ignoring red flags delays pain — it never prevents it.
-    `,
-  },
-
-  "first-impression": {
+  {
     title: "How to Make a Great First Impression on a Date",
+    slug: "first-impression",
     image: "/images/dating/first-impression.png",
-    minutes: 5,
     content: `
-Attraction begins before words.
+First impressions are emotional, not logical.
+Your energy, presence, and confidence matter more than perfection.
 
-This article shows you how:
-• Energy speaks louder than appearance  
-• Confidence is felt, not performed  
-• Calm presence creates intrigue  
-• Authenticity builds connection  
-
-First impressions are emotional — not logical.
+Focus on authenticity, calm body language, eye contact, and genuine curiosity.
     `,
   },
-
-  "building-trust": {
+  {
     title: "Building Trust and Emotional Connection",
+    slug: "building-trust",
     image: "/images/dating/building-trust.jpg",
-    minutes: 6,
     content: `
-Trust is built through consistency, empathy, and honesty.
-
-You’ll learn:
-• How emotional safety forms bonds  
-• Why vulnerability deepens love  
-• The power of reliability  
-• How trust grows over time  
-
-Real connection feels calm, secure, and alive.
+Trust isn’t built through words — it’s built through consistency,
+emotional availability, and reliability over time.
     `,
   },
-};
+];
 
 export default function DatingBlog() {
   const router = useRouter();
   const { slug } = router.query;
 
-  if (!slug || !BLOGS[slug]) {
+  // ✅ Prevent render before slug exists
+  if (!slug) return null;
+
+  const blog = blogs.find((b) => b.slug === slug);
+
+  // ✅ Handle missing blog safely
+  if (!blog) {
     return (
-      <main style={{ padding: "4rem", color: "#fff", background: "#000" }}>
-        <h1>Article not found</h1>
-        <Link href="/dating">← Back to Dating</Link>
+      <main
+        style={{
+          minHeight: "100vh",
+          background: "#020617",
+          color: "#e5e7eb",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "2rem",
+          textAlign: "center",
+        }}
+      >
+        <div>
+          <h2>Article not found</h2>
+          <p>This dating article may have been removed.</p>
+
+          <Link href="/dating">
+            <span
+              style={{
+                display: "inline-block",
+                marginTop: "1.5rem",
+                color: "#34d399",
+                fontWeight: "600",
+                cursor: "pointer",
+              }}
+            >
+              ← Back to Dating
+            </span>
+          </Link>
+        </div>
       </main>
     );
   }
 
   return (
-  <>
-    <Head>
-      <title>{blog.title} | Sivlenk</title>
-      <meta name="description" content={blog.title} />
-    </Head>
-
     <main
       style={{
         minHeight: "100vh",
         background: "#020617",
         color: "#e5e7eb",
-        overflowX: "hidden",
+        padding: "clamp(1.2rem, 4vw, 3rem)",
       }}
     >
-      {/* Hero */}
-      <section
-        style={{
-          height: "60vh",
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,.4), #020617), url(${blog.image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "flex",
-          alignItems: "flex-end",
-          padding: "3rem",
-        }}
-      >
-        <div>
-          <p style={{ color: "#34d399", fontSize: "0.85rem" }}>
-            {blog.minutes} min read
-          </p>
-          <h1 style={{ fontSize: "2.5rem", marginTop: "0.5rem" }}>
-            {blog.title}
-          </h1>
-        </div>
-      </section>
-
-      {/* Content */}
-      <article
-        style={{
-          maxWidth: "850px",
-          margin: "0 auto",
-          padding: "3rem 1.5rem",
-          fontSize: "1.05rem",
-          lineHeight: "1.9",
-          whiteSpace: "pre-line",
-        }}
-      >
-        {blog.content}
-
-        {/* CTA */}
-        <div
+      {/* Back Button */}
+      <Link href="/dating">
+        <span
           style={{
-            marginTop: "4rem",
-            padding: "2rem",
-            borderRadius: "16px",
-            background: "linear-gradient(135deg, #064e3b, #022c22)",
+            display: "inline-block",
+            marginBottom: "1.5rem",
+            color: "#34d399",
+            fontWeight: "600",
+            cursor: "pointer",
           }}
         >
-          <h3>Want deeper relationship mastery?</h3>
-          <p>
-            Discover proven emotional attraction principles used by top
-            relationship coaches.
-          </p>
-          <a
-            href="#"
+          ← Back to Dating
+        </span>
+      </Link>
+
+      {/* Content Wrapper */}
+      <article
+        style={{
+          maxWidth: "900px",
+          margin: "0 auto",
+        }}
+      >
+        {/* Title */}
+        <h1
+          style={{
+            fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
+            marginBottom: "1.2rem",
+            lineHeight: "1.25",
+          }}
+        >
+          {blog.title}
+        </h1>
+
+        {/* Image */}
+        <div
+          style={{
+            width: "100%",
+            height: "clamp(260px, 50vw, 420px)",
+            borderRadius: "18px",
+            overflow: "hidden",
+            marginBottom: "2rem",
+          }}
+        >
+          <img
+            src={blog.image}
+            alt={blog.title}
             style={{
-              display: "inline-block",
-              marginTop: "1rem",
-              padding: "0.9rem 1.6rem",
-              borderRadius: "999px",
-              background: "#34d399",
-              color: "#022c22",
-              fontWeight: "600",
-              textDecoration: "none",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover", // ✅ SAME AS WELLNESS
             }}
-          >
-            Learn More →
-          </a>
+          />
         </div>
 
-        {/* BACK BUTTON */}
-        <div style={{ marginTop: "2rem" }}>
-          <Link href="/dating">
-            <span className="back-btn">← Back to Dating</span>
-          </Link>
+        {/* Content */}
+        <div
+          style={{
+            fontSize: "1rem",
+            lineHeight: "1.75",
+            color: "#d1d5db",
+            whiteSpace: "pre-line",
+          }}
+        >
+          {blog.content}
         </div>
       </article>
     </main>
-
-    {/* ✅ STYLE MUST BE INSIDE RETURN */}
-    <style jsx>{`
-      .back-btn {
-        display: inline-block;
-        margin-top: 40px;
-        color: #9ee6c1;
-        font-weight: 600;
-        cursor: pointer;
-        position: relative;
-        z-index: 10;
-      }
-
-      .back-btn:hover {
-        text-decoration: underline;
-      }
-    `}</style>
-  </>
-);
+  );
   }
-    
+            
