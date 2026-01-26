@@ -41,7 +41,7 @@ Healthy communication creates emotional intimacy and long-term connection.
   },
   {
     title: "5 Red Flags You Should Never Ignore",
-    slug: "dating-red-flags",
+    slug: "red-flags",
     image: "/images/dating/red-flags.png",
     content: `
 Ignoring red flags early often leads to deeper emotional pain later.
