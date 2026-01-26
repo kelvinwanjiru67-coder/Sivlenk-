@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 /* ===== BLOG DATA ===== */
 const blogs = [
@@ -8,23 +9,23 @@ const blogs = [
     slug: "make-him-worship-you",
     image: "/images/dating/dating-communication.jpg",
     content: `
-A man doesn’t “worship” a woman because she controls him or tries too hard.
+A man doesn’t worship a woman because she controls him.
 He adores her because of how she makes him feel — safe, respected, inspired.
 
-1. Master Self-Respect First  
-Nothing is more attractive than a woman who knows her worth.
+1. Master Self-Respect  
+Nothing is more attractive than grounded confidence.
 
 2. Let Him Feel Needed (Not Controlled)  
-Men thrive when they feel useful and appreciated.
+Men bond through purpose, not pressure.
 
 3. Communicate Calmly  
-Strong relationships are built on emotional maturity.
+Emotional maturity builds desire.
 
 4. Maintain Your Own Life  
-Your independence is magnetic.
+Independence is magnetic.
 
 5. Create Emotional Safety  
-When a man feels emotionally safe with you, devotion grows naturally.
+Safety creates devotion.
 `,
   },
   {
@@ -33,9 +34,9 @@ When a man feels emotionally safe with you, devotion grows naturally.
     image: "/images/dating/first-impression.png",
     content: `
 First impressions are emotional, not logical.
-Your energy, confidence, and presence speak before your words.
+Your energy speaks before words.
 
-Eye contact, calm body language, and genuine curiosity matter more than perfection.
+Presence, calm body language, and authenticity matter most.
 `,
   },
   {
@@ -43,10 +44,9 @@ Eye contact, calm body language, and genuine curiosity matter more than perfecti
     slug: "building-trust",
     image: "/images/dating/building-trust.jpg",
     content: `
-Trust is built through consistency, emotional availability,
-and showing up even when it’s inconvenient.
+Trust is built through consistency, availability, and integrity.
 
-True connection grows when both partners feel seen and safe.
+Connection deepens when both partners feel safe to be real.
 `,
   },
   {
@@ -54,11 +54,10 @@ True connection grows when both partners feel seen and safe.
     slug: "healthy-communication",
     image: "/images/dating/healthy-communication.png",
     content: `
-Healthy communication isn’t about winning arguments —
-it’s about understanding each other.
+Healthy communication isn’t about winning —
+it’s about understanding.
 
-Listening, validating emotions, and responding with empathy
-strengthens long-term bonds.
+Empathy strengthens long-term intimacy.
 `,
   },
   {
@@ -66,72 +65,81 @@ strengthens long-term bonds.
     slug: "red-flags",
     image: "/images/dating/red-flags.png",
     content: `
-Ignoring red flags early often leads to emotional pain later.
+Ignoring red flags early creates pain later.
 
-Disrespect, inconsistency, emotional unavailability,
-and manipulation should never be overlooked.
+Disrespect, inconsistency, manipulation — never minimize them.
 `,
   },
 ];
 
-/* ===== HELPER: READING TIME ===== */
-function getReadingTime(text) {
-  const wordsPerMinute = 200;
-  const wordCount = text.trim().split(/\s+/).length;
-  return Math.ceil(wordCount / wordsPerMinute);
-}
+/* ===== READING TIME ===== */
+const readingTime = (text) =>
+  Math.ceil(text.trim().split(/\s+/).length / 200);
 
-export default function DatingBlog() {
+export default function DatingSlug() {
   const router = useRouter();
   const { slug } = router.query;
 
   if (!slug) return null;
-
   const blog = blogs.find((b) => b.slug === slug);
   if (!blog) return null;
-
-  const readingTime = getReadingTime(blog.content);
 
   return (
     <main
       style={{
         minHeight: "100vh",
-        background: "#020617",
+        background: "linear-gradient(180deg, #020617, #020617)",
+        padding: "clamp(1.5rem, 5vw, 4rem)",
         color: "#e5e7eb",
-        padding: "clamp(1.2rem, 4vw, 3rem)",
       }}
     >
-      <article style={{ maxWidth: "900px", margin: "0 auto" }}>
+      <article
+        style={{
+          maxWidth: "900px",
+          margin: "0 auto",
+        }}
+      >
         {/* Title */}
-        <h1
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           style={{
-            fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
-            marginBottom: "0.6rem",
+            fontSize: "clamp(2rem, 4vw, 2.8rem)",
             lineHeight: "1.25",
+            marginBottom: "0.6rem",
+            letterSpacing: "-0.02em",
           }}
         >
           {blog.title}
-        </h1>
+        </motion.h1>
 
         {/* Meta */}
-        <p
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
           style={{
             color: "#9ca3af",
             fontSize: "0.9rem",
-            marginBottom: "1.5rem",
+            marginBottom: "2rem",
           }}
         >
-          {readingTime} min read · Dating
-        </p>
+          {readingTime(blog.content)} min read · Dating
+        </motion.p>
 
         {/* Image */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9 }}
           style={{
             width: "100%",
             height: "clamp(260px, 50vw, 420px)",
-            borderRadius: "18px",
+            borderRadius: "22px",
             overflow: "hidden",
-            marginBottom: "2rem",
+            marginBottom: "2.5rem",
+            boxShadow: "0 30px 80px rgba(0,0,0,0.45)",
           }}
         >
           <img
@@ -143,37 +151,51 @@ export default function DatingBlog() {
               objectFit: "cover",
             }}
           />
-        </div>
+        </motion.div>
 
         {/* Content */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25, duration: 0.8 }}
           style={{
-            fontSize: "1rem",
-            lineHeight: "1.75",
+            fontSize: "1.05rem",
+            lineHeight: "1.9",
             color: "#d1d5db",
             whiteSpace: "pre-line",
           }}
         >
           {blog.content}
-        </div>
+        </motion.div>
 
-        {/* Bottom Back Button */}
-        <div style={{ marginTop: "3rem", textAlign: "center" }}>
+        {/* Back Button */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          style={{
+            marginTop: "4rem",
+            textAlign: "center",
+          }}
+        >
           <Link href="/dating">
             <span
               style={{
+                display: "inline-block",
+                padding: "0.75rem 1.6rem",
+                borderRadius: "999px",
+                background: "rgba(52,211,153,0.12)",
                 color: "#34d399",
                 fontWeight: "600",
                 cursor: "pointer",
-                fontSize: "0.95rem",
+                transition: "all 0.3s ease",
               }}
             >
               ← Back to Dating
             </span>
           </Link>
-        </div>
+        </motion.div>
       </article>
     </main>
   );
-    }
-    
+}
