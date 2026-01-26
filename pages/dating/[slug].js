@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+/* ===== BLOG DATA ===== */
 const blogs = [
   {
     title: "How to Make Your Man Worship You (Without Losing Yourself)",
@@ -10,26 +11,21 @@ const blogs = [
 A man doesn’t “worship” a woman because she controls him or tries too hard.
 He adores her because of how she makes him feel — safe, respected, inspired.
 
-### 1. Master Self-Respect First
+1. Master Self-Respect First  
 Nothing is more attractive than a woman who knows her worth.
-When you respect yourself, you don’t chase validation or tolerate disrespect.
 
-### 2. Let Him Feel Needed (Not Controlled)
+2. Let Him Feel Needed (Not Controlled)  
 Men thrive when they feel useful and appreciated.
-Allow him to contribute, protect, and solve problems.
 
-### 3. Communicate Calmly
+3. Communicate Calmly  
 Strong relationships are built on emotional maturity.
-Speak calmly, listen deeply, and express needs without blame.
 
-### 4. Maintain Your Own Life
+4. Maintain Your Own Life  
 Your independence is magnetic.
-Have goals, passions, and a life outside the relationship.
 
-### 5. Create Emotional Safety
-When a man feels emotionally safe with you, he opens up fully.
-That’s when devotion naturally grows.
-    `,
+5. Create Emotional Safety  
+When a man feels emotionally safe with you, devotion grows naturally.
+`,
   },
   {
     title: "How to Make a Great First Impression on a Date",
@@ -37,67 +33,64 @@ That’s when devotion naturally grows.
     image: "/images/dating/first-impression.png",
     content: `
 First impressions are emotional, not logical.
-Your energy, presence, and confidence matter more than perfection.
+Your energy, confidence, and presence speak before your words.
 
-Focus on authenticity, calm body language, eye contact, and genuine curiosity.
-    `,
+Eye contact, calm body language, and genuine curiosity matter more than perfection.
+`,
   },
   {
     title: "Building Trust and Emotional Connection",
     slug: "building-trust",
     image: "/images/dating/building-trust.jpg",
     content: `
-Trust isn’t built through words — it’s built through consistency,
-emotional availability, and reliability over time.
-    `,
+Trust is built through consistency, emotional availability,
+and showing up even when it’s inconvenient.
+
+True connection grows when both partners feel seen and safe.
+`,
+  },
+  {
+    title: "Healthy Communication in Relationships",
+    slug: "healthy-communication",
+    image: "/images/dating/healthy-communication.png",
+    content: `
+Healthy communication isn’t about winning arguments —
+it’s about understanding each other.
+
+Listening, validating emotions, and responding with empathy
+strengthens long-term bonds.
+`,
+  },
+  {
+    title: "5 Red Flags You Should Never Ignore",
+    slug: "red-flags",
+    image: "/images/dating/red-flags.png",
+    content: `
+Ignoring red flags early often leads to emotional pain later.
+
+Disrespect, inconsistency, emotional unavailability,
+and manipulation should never be overlooked.
+`,
   },
 ];
+
+/* ===== HELPER: READING TIME ===== */
+function getReadingTime(text) {
+  const wordsPerMinute = 200;
+  const wordCount = text.trim().split(/\s+/).length;
+  return Math.ceil(wordCount / wordsPerMinute);
+}
 
 export default function DatingBlog() {
   const router = useRouter();
   const { slug } = router.query;
 
-  // ✅ Prevent render before slug exists
   if (!slug) return null;
 
   const blog = blogs.find((b) => b.slug === slug);
+  if (!blog) return null;
 
-  // ✅ Handle missing blog safely
-  if (!blog) {
-    return (
-      <main
-        style={{
-          minHeight: "100vh",
-          background: "#020617",
-          color: "#e5e7eb",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "2rem",
-          textAlign: "center",
-        }}
-      >
-        <div>
-          <h2>Article not found</h2>
-          <p>This dating article may have been removed.</p>
-
-          <Link href="/dating">
-            <span
-              style={{
-                display: "inline-block",
-                marginTop: "1.5rem",
-                color: "#34d399",
-                fontWeight: "600",
-                cursor: "pointer",
-              }}
-            >
-              ← Back to Dating
-            </span>
-          </Link>
-        </div>
-      </main>
-    );
-  }
+  const readingTime = getReadingTime(blog.content);
 
   return (
     <main
@@ -108,38 +101,28 @@ export default function DatingBlog() {
         padding: "clamp(1.2rem, 4vw, 3rem)",
       }}
     >
-      {/* Back Button */}
-      <Link href="/dating">
-        <span
-          style={{
-            display: "inline-block",
-            marginBottom: "1.5rem",
-            color: "#34d399",
-            fontWeight: "600",
-            cursor: "pointer",
-          }}
-        >
-          ← Back to Dating
-        </span>
-      </Link>
-
-      {/* Content Wrapper */}
-      <article
-        style={{
-          maxWidth: "900px",
-          margin: "0 auto",
-        }}
-      >
+      <article style={{ maxWidth: "900px", margin: "0 auto" }}>
         {/* Title */}
         <h1
           style={{
             fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
-            marginBottom: "1.2rem",
+            marginBottom: "0.6rem",
             lineHeight: "1.25",
           }}
         >
           {blog.title}
         </h1>
+
+        {/* Meta */}
+        <p
+          style={{
+            color: "#9ca3af",
+            fontSize: "0.9rem",
+            marginBottom: "1.5rem",
+          }}
+        >
+          {readingTime} min read · Dating
+        </p>
 
         {/* Image */}
         <div
@@ -157,7 +140,7 @@ export default function DatingBlog() {
             style={{
               width: "100%",
               height: "100%",
-              objectFit: "cover", // ✅ SAME AS WELLNESS
+              objectFit: "cover",
             }}
           />
         </div>
@@ -173,8 +156,24 @@ export default function DatingBlog() {
         >
           {blog.content}
         </div>
+
+        {/* Bottom Back Button */}
+        <div style={{ marginTop: "3rem", textAlign: "center" }}>
+          <Link href="/dating">
+            <span
+              style={{
+                color: "#34d399",
+                fontWeight: "600",
+                cursor: "pointer",
+                fontSize: "0.95rem",
+              }}
+            >
+              ← Back to Dating
+            </span>
+          </Link>
+        </div>
       </article>
     </main>
   );
-  }
-            
+    }
+    
