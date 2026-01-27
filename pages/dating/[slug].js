@@ -17,6 +17,7 @@ A woman who honors herself invites admiration naturally.
     title: "How to Make a Great First Impression on a Date",
     slug: "first-impression",
     image: "/images/dating/first-impression.png",
+    position: "centre 30%",
     content: `
 First impressions are emotional, not logical.
 
@@ -34,7 +35,8 @@ Trust grows through consistency, availability, and emotional honesty.
   {
     title: "Healthy Communication in Relationships",
     slug: "healthy-communication",
-    image: "/images/dating/healthy-communication.png",
+    image: "/images/dating/healthy-communication.png"
+    position: "centre 30%",
     content: `
 Healthy communication creates emotional intimacy and long-term connection.
 `,
@@ -113,7 +115,7 @@ export default function DatingArticle() {
           transition={{ duration: 1 }}
           style={{
               width: "100vw",
-              height: "clamp(340px, 60vw, 620px)",
+              height: "clamp(340px, 65vw, 620px)",
               marginLeft: "calc(-50vw + 50%)", // BREAK OUT OF CONTENT
               borderRadius: "0",
               overflow: "hidden",
@@ -128,7 +130,8 @@ export default function DatingArticle() {
                width: "100%",
                height: "100%",
                objectFit: "cover",
-               objectPosition: "center top", // 👈 KEY FIX
+               objectPosition: blog.position || "center top",
+              
              }}
           />
         </motion.div>
