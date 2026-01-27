@@ -87,17 +87,20 @@ export default function Dating() {
               />
 
               <div
-                style={{
-                  position: "absolute",
-                  bottom: "60px",
-                  left: "20px",
-                  right: "20px",
-                  fontSize: "1.05rem",
-                  fontWeight: "600",
-                }}
-              >
-                {blog.title}
-              </div>
+  style={{
+    position: "absolute",
+    bottom: "60px",
+    left: "20px",
+    right: "20px",
+    fontSize: "1.05rem",
+    fontWeight: "600",
+    color: "#ffffff", // FORCE WHITE
+    textShadow: "0 2px 8px rgba(0,0,0,0.6)", // readability
+  }}
+>
+  {blog.title}
+</div>
+    
 
               <div className="readCta">Read article →</div>
             </motion.div>
