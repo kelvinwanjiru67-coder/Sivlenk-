@@ -34,7 +34,7 @@ Trust grows through consistency, availability, and emotional honesty.
   {
     title: "Healthy Communication in Relationships",
     slug: "healthy-communication",
-    image: "/images/dating/healthy-communication.png"
+    image: "/images/dating/healthy-communication.png",
     content: `
 Healthy communication creates emotional intimacy and long-term connection.
 `,
