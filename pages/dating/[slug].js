@@ -7,6 +7,7 @@ const blogs = [
     title: "How to Make Your Man Worship You",
     slug: "make-him-worship-you",
     image: "/images/dating/dating-communication.jpg",
+    position: "centre 30%", // 👈 CUSTOM CROP
     content: `
 True devotion is created through emotional safety, self-respect, and calm confidence.
 
@@ -17,7 +18,6 @@ A woman who honors herself invites admiration naturally.
     title: "How to Make a Great First Impression on a Date",
     slug: "first-impression",
     image: "/images/dating/first-impression.png",
-    position: "centre 30%",
     content: `
 First impressions are emotional, not logical.
 
@@ -36,7 +36,7 @@ Trust grows through consistency, availability, and emotional honesty.
     title: "Healthy Communication in Relationships",
     slug: "healthy-communication",
     image: "/images/dating/healthy-communication.png"
-    position: "centre 30%",
+    position: "centre 30%", // 👈 CUSTOM CROP
     content: `
 Healthy communication creates emotional intimacy and long-term connection.
 `,
