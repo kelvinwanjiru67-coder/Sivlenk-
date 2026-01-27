@@ -7,7 +7,6 @@ const blogs = [
     title: "How to Make Your Man Worship You",
     slug: "make-him-worship-you",
     image: "/images/dating/dating-communication.jpg",
-    position: "centre 30%", // 👈 CUSTOM CROP
     content: `
 True devotion is created through emotional safety, self-respect, and calm confidence.
 
@@ -36,7 +35,6 @@ Trust grows through consistency, availability, and emotional honesty.
     title: "Healthy Communication in Relationships",
     slug: "healthy-communication",
     image: "/images/dating/healthy-communication.png"
-    position: "centre 30%", // 👈 CUSTOM CROP
     content: `
 Healthy communication creates emotional intimacy and long-term connection.
 `,
@@ -115,7 +113,7 @@ export default function DatingArticle() {
           transition={{ duration: 1 }}
           style={{
               width: "100vw",
-              height: "clamp(340px, 65vw, 620px)",
+              height: "clamp(280px, 60vw, 520px)",
               marginLeft: "calc(-50vw + 50%)", // BREAK OUT OF CONTENT
               borderRadius: "0",
               overflow: "hidden",
@@ -130,7 +128,7 @@ export default function DatingArticle() {
                width: "100%",
                height: "100%",
                objectFit: "cover",
-               objectPosition: blog.position || "center top",
+               objectPosition: "center top", // 👈 KEY FIX
               
              }}
           />
