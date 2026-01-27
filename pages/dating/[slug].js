@@ -113,7 +113,7 @@ export default function DatingArticle() {
           transition={{ duration: 1 }}
           style={{
               width: "100vw",
-              height: "clamp(280px, 60vw, 520px)",
+              height: "clamp(340px, 65vw, 620px)",
               marginLeft: "calc(-50vw + 50%)", // BREAK OUT OF CONTENT
               borderRadius: "0",
               overflow: "hidden",
@@ -124,7 +124,12 @@ export default function DatingArticle() {
             src={blog.image}
             alt={blog.title}
             whileHover={{ scale: 1.04 }}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            style={{
+               width: "100%",
+               height: "100%",
+               objectFit: "cover",
+               objectPosition: "center top", // 👈 KEY FIX
+             }}
           />
         </motion.div>
 
