@@ -113,7 +113,7 @@ export default function DatingArticle() {
           transition={{ duration: 1 }}
           style={{
               width: "100vw",
-              height: "clamp(320px, 65vw, 580px)",
+              height: "clamp(340px, 60vw, 620px)",
               marginLeft: "calc(-50vw + 50%)", // BREAK OUT OF CONTENT
               borderRadius: "0",
               overflow: "hidden",
