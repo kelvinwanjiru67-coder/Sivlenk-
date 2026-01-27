@@ -112,28 +112,26 @@ export default function DatingArticle() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1 }}
           style={{
-              width: "100vw",
-              height: "clamp(360px, 70vw, 680px)",
-              marginLeft: "calc(-50vw + 50%)", // BREAK OUT OF CONTENT
-              borderRadius: "0",
-              overflow: "hidden",
-              marginBottom: "3rem",
-              background: "#020617",
-            }}
-          >                       
-          <motion.img
-            src={blog.image}
-            alt={blog.title}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.6 }}
-            style={{
-               width: "100%",
-               height: "100%",
-               objectFit: "contain",
-               objectPosition: "center centre", // 👈 KEY FIX
-              
-             }}
-          />
+            width: "100vw",
+            maxWidth: "100vw",
+            marginLeft: "calc(-50vw + 50%)",
+            background: "#020617",
+            padding: "2rem 0",
+          }}
+        > <motion.img
+  src={blog.image}
+  alt={blog.title}
+  whileHover={{ scale: 1.01 }}
+  transition={{ duration: 0.6 }}
+  style={{
+    display: "block",
+    width: "100%",
+    maxWidth: "100%",
+    height: "auto",
+    margin: "0 auto",
+    objectFit: "contain",
+  }}
+/>
         </motion.div>
 
         <div
