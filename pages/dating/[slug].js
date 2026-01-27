@@ -73,11 +73,24 @@ export default function DatingArticle() {
     >
       <div className="ambientGlow" />
 
-      <article style={{ maxWidth: "900px", margin: "0 auto" }}>
+      <article
+  style={{
+    width: "100%",
+    maxWidth: "100%",
+  }}
+>
+    
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          style={{ fontSize: "2.4rem", marginBottom: "0.5rem" }}
+          style={{
+             maxWidth: "880px",
+             margin: "0 auto 0.5rem",
+             padding: "0 1rem",
+             fontSize: "clamp(2rem, 4vw, 2.8rem)",
+          }}
+        >
+    
         >
           {blog.title}
         </motion.h1>
@@ -91,12 +104,14 @@ export default function DatingArticle() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1 }}
           style={{
-            height: "420px",
-            borderRadius: "22px",
-            overflow: "hidden",
-            marginBottom: "2.5rem",
-          }}
-        >
+              width: "100vw",
+              height: "clamp(280px, 60vw, 520px)",
+              marginLeft: "calc(-50vw + 50%)", // BREAK OUT OF CONTENT
+              borderRadius: "0",
+              overflow: "hidden",
+              marginBottom: "3rem",
+            }}
+          >                       
           <motion.img
             src={blog.image}
             alt={blog.title}
@@ -106,12 +121,16 @@ export default function DatingArticle() {
         </motion.div>
 
         <div
-          style={{
-            lineHeight: "1.9",
-            fontSize: "1.05rem",
-            whiteSpace: "pre-line",
-          }}
-        >
+  style={{
+    maxWidth: "880px",
+    margin: "0 auto",
+    padding: "0 1rem",
+    lineHeight: "1.9",
+    fontSize: "1.05rem",
+    whiteSpace: "pre-line",
+  }}
+>
+
           {blog.content}
         </div>
 
