@@ -113,22 +113,24 @@ export default function DatingArticle() {
           transition={{ duration: 1 }}
           style={{
               width: "100vw",
-              height: "clamp(280px, 60vw, 520px)",
+              height: "clamp(360px, 70vw, 680px)",
               marginLeft: "calc(-50vw + 50%)", // BREAK OUT OF CONTENT
               borderRadius: "0",
               overflow: "hidden",
               marginBottom: "3rem",
+              background: "#020617",
             }}
           >                       
           <motion.img
             src={blog.image}
             alt={blog.title}
-            whileHover={{ scale: 1.04 }}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.6 }}
             style={{
                width: "100%",
                height: "100%",
-               objectFit: "cover",
-               objectPosition: "center top", // 👈 KEY FIX
+               objectFit: "contain",
+               objectPosition: "center centre", // 👈 KEY FIX
               
              }}
           />
