@@ -91,7 +91,7 @@ export default function DatingArticle() {
           }}
         >
     
-        >
+        
           {blog.title}
         </motion.h1>
 
