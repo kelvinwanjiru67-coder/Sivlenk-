@@ -95,9 +95,17 @@ export default function DatingArticle() {
           {blog.title}
         </motion.h1>
 
-        <p style={{ color: "#9ca3af", marginBottom: "2rem" }}>
-          {readingTime(blog.content)} min read · Dating
-        </p>
+        <p
+  style={{
+    maxWidth: "880px",
+    margin: "0 auto 2rem",
+    padding: "0 1rem",
+    color: "#9ca3af",
+    fontSize: "0.9rem",
+  }}
+>
+  {readingTime(blog.content)} min read · Dating
+   </p>
 
         <motion.div
           initial={{ scale: 1.05, opacity: 0 }}
