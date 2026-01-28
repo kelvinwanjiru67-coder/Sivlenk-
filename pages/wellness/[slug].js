@@ -86,7 +86,6 @@ Peace is the ultimate success metric.
 export default function WellnessBlog() {
   const router = useRouter();
   const { slug } = router.query;
-
   const blog = wellnessBlogs[slug];
 
   if (!blog) {
@@ -100,47 +99,64 @@ export default function WellnessBlog() {
     );
   }
 
-  return (
-    <article style={styles.page}>
-      {/* HERO IMAGE */}
-      <section
-        style={{
-          ...styles.hero,
-          backgroundImage: `url(${blog.image})`,
-        }}
-      >
-        <div style={styles.heroOverlay} />
+  const related = Object.entries(wellnessBlogs).filter(
+    ([key]) => key !== slug
+  );
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          style={styles.heroContent}
-        >
-          <span style={styles.readTime}>{blog.time}</span>
-          <h1 style={styles.title}>{blog.title}</h1>
-        </motion.div>
-      </section>
+  return (
+    <main style={styles.page}>
+      {/* FULL WIDTH IMAGE (SAME LOGIC AS DATING) */}
+      <div style={styles.fullImageWrap}>
+        <motion.img
+          src={blog.image}
+          alt={blog.title}
+          initial={{ scale: 1.05 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.2 }}
+          style={styles.fullImage}
+        />
+      </div>
 
       {/* CONTENT */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
-        style={styles.content}
-      >
+      <section style={styles.content}>
+        <span style={styles.readTime}>{blog.time}</span>
+        <h1 style={styles.title}>{blog.title}</h1>
+
         {blog.content.split("\n").map((para, index) => (
           <p key={index} style={styles.paragraph}>
             {para}
           </p>
         ))}
 
-        <Link href="/wellness">
-  <span style={styles.backButton}>← Back to Wellness</span>
-</Link>
+        {/* RELATED ARTICLES */}
+        <section style={styles.related}>
+          <h3 style={styles.relatedTitle}>Related Wellness Articles</h3>
 
-      </motion.section>
-    </article>
+          <div style={styles.relatedGrid}>
+            {related.map(([key, item]) => (
+              <Link key={key} href={`/wellness/${key}`}>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  style={styles.relatedCard}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    style={styles.relatedImage}
+                  />
+                  <span style={styles.relatedText}>{item.title}</span>
+                </motion.div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* BACK BUTTON */}
+        <Link href="/wellness">
+          <span style={styles.backButton}>← Back to Wellness</span>
+        </Link>
+      </section>
+    </main>
   );
 }
 
@@ -155,61 +171,89 @@ const styles = {
     color: "#f5f5f5",
   },
 
-  hero: {
-    height: "100vh",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    position: "relative",
-    display: "flex",
-    alignItems: "flex-end",
+  fullImageWrap: {
+    width: "100vw",
+    maxWidth: "100vw",
+    marginLeft: "calc(-50vw + 50%)",
+    background: "#020617",
+    padding: "2rem 0",
   },
 
-  heroOverlay: {
-    position: "absolute",
-    inset: 0,
-    background:
-      "linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2))",
+  fullImage: {
+    display: "block",
+    width: "100%",
+    height: "auto",
+    maxWidth: "100%",
+    objectFit: "contain",
+    margin: "0 auto",
   },
 
-  heroContent: {
-    position: "relative",
-    padding: "40px 20px",
-    maxWidth: "900px",
-    zIndex: 2,
+  content: {
+    maxWidth: "880px",
+    margin: "0 auto",
+    padding: "3rem 1rem 5rem",
+    lineHeight: 1.8,
+    fontSize: "1.05rem",
   },
 
   readTime: {
     fontSize: "0.85rem",
-    opacity: 0.85,
+    color: "#9ee6c1",
   },
 
   title: {
-    fontSize: "clamp(2rem, 5vw, 3.5rem)",
+    fontSize: "clamp(2rem, 4vw, 2.8rem)",
     fontWeight: 700,
-    marginTop: "10px",
-  },
-
-  content: {
-    maxWidth: "800px",
-    margin: "0 auto",
-    padding: "60px 20px 100px",
-    lineHeight: 1.8,
-    fontSize: "1.05rem",
+    margin: "0.6rem 0 2rem",
   },
 
   paragraph: {
     marginBottom: "24px",
     color: "#d5ddd9",
   },
-   backButton: {
-  display: "inline-block",
-  marginTop: "40px",
-  color: "#9ee6c1",
-  fontWeight: 600,
-  cursor: "pointer",
-  position: "relative",
-  zIndex: 10,
 
+  related: {
+    marginTop: "4rem",
+  },
+
+  relatedTitle: {
+    marginBottom: "1.2rem",
+    fontSize: "1.2rem",
+  },
+
+  relatedGrid: {
+    display: "flex",
+    gap: "1rem",
+    overflowX: "auto",
+    paddingBottom: "1rem",
+  },
+
+  relatedCard: {
+    minWidth: "220px",
+    borderRadius: "16px",
+    overflow: "hidden",
+    background: "rgba(255,255,255,0.04)",
+    cursor: "pointer",
+  },
+
+  relatedImage: {
+    width: "100%",
+    height: "140px",
+    objectFit: "cover",
+  },
+
+  relatedText: {
+    display: "block",
+    padding: "0.8rem",
+    fontSize: "0.85rem",
+  },
+
+  backButton: {
+    display: "inline-block",
+    marginTop: "4rem",
+    color: "#9ee6c1",
+    fontWeight: 600,
+    cursor: "pointer",
   },
 
   notFound: {
@@ -228,4 +272,4 @@ const styles = {
     textDecoration: "none",
   },
 };
-
+     
